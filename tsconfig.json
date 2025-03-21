@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ES2019",                        // Use ES2019 features
+      "module": "commonjs",                      // Use commonjs module system (Node.js)
+      "lib": ["ES2019"],                         // Include ES2019 library files
+      "rootDir": "./src",                        // Source files location
+      "outDir": "./dist",                        // Output directory for compiled files
+      "strict": true,                            // Enable all strict type-checking options
+      "esModuleInterop": true,                   // Enables emit interoperability between CommonJS and ES Modules
+      "forceConsistentCasingInFileNames": true,  // Ensure file names are case-sensitive
+      "skipLibCheck": true,                      // Skip type checking of declaration files
+      "moduleResolution": "node"                 // Use Node.js module resolution
+    },
+    "include": ["src/**/*.ts"],                  // Include all .ts files in src
+    "exclude": ["node_modules"]                  // Exclude node_modules
+  }

@@ -1,0 +1,23 @@
+# Newsletter Generation
+
+I love the newsletter.
+Compiling the information and formatting it is simple, but takes a lot of care and attention to details, takes a long time, and is really boring.
+
+This fetches the information for me, puts it in the right format for intermediary steps, and creates the email for me.
+
+I create the first newsletter manually in ConvertKit in the format I wanted, and sent it to myself.
+
+I exported the email to [example-newsletter.eml](./example-newsletter.eml)
+
+I copied the html section into [example-newsletter.html.encoded](./example-newsletter.html.encoded)
+
+I generated the cleaned html file using `cat example-newsletter.html.encoded | ./unquote.bash > example-newsletter.html`
+
+This was handy to explore.
+
+I made a json structure for all the required data that would change between versions of my email.
+I made an input format for my data I wanted to put in, basically stripping out the aspects I wanted to code.
+
+I got a token for searching public apple content, by going to their web browser app in a private window at music.apple.com, performing a search, and monitoring the authorisation header sent in the request.
+This is a pretty pointless authentication, only seems to exist to prevent API abuse, since the token is valid for over 3 months and no credentials are require to acquire one.
+Only reason I didn't keep it in this repo is incase lots of people suddenly scrape this and think these credentials are valuable and abuse them.

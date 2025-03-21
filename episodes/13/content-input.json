@@ -1,0 +1,133 @@
+{
+    "$schema": "../../content-input.schema.json",
+    "episode": {
+      "number": 13,
+      "date": "16th March",
+      "title": "Scaled Agile processes and stories with Raxit Ramani"
+    },
+    "intro": "We've got Raxit Ramani, a highly experienced Agile Coach and Project Manager talking about Scaled Agile, SAFe, stories of things being wrong, and how different government bodies have operated in the past.",
+    "showNotes": [
+      "Michael is still pale after a weekend in the sun. He didn't shed a tear after being in the Spa's flotation tank",
+      "Raxit had a good job interview"
+    ],
+    "quickfireQuestions": [
+      "Your opinion of Agile, in one word?",
+      "What’s the biggest crime against Jira?",
+      "Worst excuse you’ve ever heard for missing a sprint or PI goal?",
+      "Longest you’ve ever seen a story carried over multiple sprints?",
+      "Biggest red flag that someone isn’t really agile?",
+      "Most valuable certifications?"
+    ],
+    "breakingProdLeaderboard": {
+      "summary": "We have a new winner! With 3 distinct stories!"
+    },
+    "bigTopic": {
+      "title": "Scaled Agile conversations",
+      "questions": [
+        "How would you describe modern agile software development to a new developer?",
+        "How does a department know when it’s ready for a scaled agile framework?",
+        "What might they notice first that agile hasn’t solved, even with scrum or kanban?",
+        "Have you seen a scaled agile implementation fail?",
+        "What sort of KPIs or measurements are common?",
+        "Does this impact individual contributors?",
+        "Do top software companies do this?",
+        "Any scenarios where scaled agile is the wrong idea?"
+      ]
+    },
+    "news": [
+      {
+        "title": "U.S. DoJ Again Calls for Google to Sell Chrome",
+        "link": "https://www.macrumors.com/2025/03/10/doj-google-chrome-sale/"
+      },
+      {
+        "title": "Google donates $1 million to Trump’s inauguration fund",
+        "link": "https://www.cnbc.com/2025/01/09/google-donates-1-million-to-trumps-inauguration-fund.html"
+      },
+      {
+        "title": "Kate Bush and Damon Albarn among 1,000 Artists on silent album protesting AI",
+        "link": "https://www.theguardian.com/technology/2025/feb/25/kate-bush-damon-albarn-1000-artists-silent-ai-protest-album-copyright"
+      },
+      {
+        "title": "HR Manager Created 22 Fake Employees to Steal $2.2 Million in Paychecks",
+        "link": "https://townflex.com/hr-manager-created-22-fake-employees-steal-2-2-million/"
+      }
+    ],
+    "recommendations": {
+      "relatedTopic": [
+        {
+          "type": "Website",
+          "title": "Visit Scaled Agile Website",
+          "url": "https://scaledagile.com"
+        },
+        {
+          "type": "Book",
+          "title": "The ART of Avoiding a Train Wreck: Practical Tips...",
+          "authors": ["Em Campbell-Pretty", "Adrienne L. Wilson"],
+          "url": "https://www.abebooks.co.uk/9781094752280"
+        },
+        {
+          "type": "Book",
+          "title": "Learning Agile",
+          "authors": ["Andrew Stellman", "Jennifer Greene"],
+          "url": "https://www.oreilly.com/library/view/learning-agile/9781449363819"
+        }
+      ],
+      "music": [
+        {
+          "artist": "Courting",
+          "album": "Lust for Life"
+        },
+        {
+          "artist": "Mercury Rev"
+        },
+        {
+          "artist": "Fat White Family"
+        },
+        {
+          "artist": "The Limiñanas"
+        },
+        {
+          "artist": "DJ Counselling",
+          "album": "Caring EP"
+        }
+      ],
+      "tech": [
+        {
+          "title": "Ghostty",
+          "description": "A fast, cross-platform terminal emulator with GPU acceleration.",
+          "url": "https://ghostty.org"
+        },
+        {
+          "title": "Warp",
+          "description": "An AI-powered terminal that helps you become a command-line power user.",
+          "url": "https://www.warp.dev/i"
+        },
+        {
+          "title": "Oh My Posh",
+          "description": "A prompt theme engine for any shell. Colors, customizations, portable.",
+          "url": "https://ohmyposh.dev/"
+        }
+      ],
+      "tv": [
+        {
+          "title": "Drive to Survive",
+          "url": "https://www.netflix.com/gb/title/80204890"
+        },
+        {
+          "title": "Zero Day",
+          "url": "https://www.netflix.com/gb/title/81598435"
+        },
+        {
+          "title": "Daredevil: Born Again",
+          "url": "https://www.disneyplus.com/en-gb/browse/entity-85e7a914-c8e6-41db-95df-c740dc2cf1b7"
+        }
+      ],
+      "books": null,
+      "podcasts": null
+    },
+    "joke": {
+      "setup": "A man has been admitted to hospital with 12 small toy horses found inside his anus.",
+      "punchline": "His condition has been described as stable."
+    }
+  }
+  
