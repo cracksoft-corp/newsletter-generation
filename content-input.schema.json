@@ -77,10 +77,7 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "title": {
-                        "type": "string"
-                    },
-                    "link": {
+                    "url": {
                         "type": "string"
                     }
                 },

@@ -16,10 +16,8 @@ export interface NewsletterEpisodeOutput {
 export interface NewsItemOutput {
     title: string;
     description: string;
-    imageLocation: string;
-    imageFilePath: string;
     uploadedImageUrl: string;
-    link: string;
+    url: string;
 }
 
 export interface RecommendationsOutput {

@@ -21,3 +21,10 @@ I made an input format for my data I wanted to put in, basically stripping out t
 I got a token for searching public apple content, by going to their web browser app in a private window at music.apple.com, performing a search, and monitoring the authorisation header sent in the request.
 This is a pretty pointless authentication, only seems to exist to prevent API abuse, since the token is valid for over 3 months and no credentials are require to acquire one.
 Only reason I didn't keep it in this repo is incase lots of people suddenly scrape this and think these credentials are valuable and abuse them.
+
+I created an app at [developers.spotify.com/dashboard](https://developers.spotify.com/dashboard) to get a client id and client secret.
+
+I created an API key for YouTube Data API v3 from my google cloud console account
+
+I created a LastFM developer account and got an API key.
+

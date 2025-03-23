@@ -26,8 +26,7 @@ export interface NewsletterEpisode {
   }
   
   export interface NewsItem {
-    title: string;
-    link: string;
+    url: string;
   }
   
   export interface Recommendations {
