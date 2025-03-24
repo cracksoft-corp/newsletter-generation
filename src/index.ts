@@ -48,6 +48,19 @@ async function fetchExtraDataAndImages() {
   //   content.recommendations[musicIndex].items = updatedContent;
   // }
 
+  //todo: add books.
+  //todo: add books within relatedTopic.
+  //todo: add podcasts/tech
+
+  // need new newsletter version.
+  // Make all web links look the same format.
+  // Need link to the breaking prod leaderboard.
+  // Add link to the website.
+  // Add link at the bottom to review us on apple podcasts, review us on spotify.
+  // Add link to give us feedback on our form.
+  // Add link for "someone else forwarded you this email? subscribe here."
+  // Add link to the newsletter archive.
+
   const tv_and_film_index = content.recommendations.findIndex((item) => item.sectionName === "tv_and_film");
   if (tv_and_film_index !== -1 && content.recommendations[tv_and_film_index].items.length > 0) {
     const tv_and_film_section = content.recommendations[tv_and_film_index] as TvAndFilmSection;

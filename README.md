@@ -42,7 +42,6 @@ Music is it's own category, as we want links to specific websites for apple musi
 
 Kind of special since they're such high value to listeners/readers.
 
-### Everything else...
+### Everything else
 
 Is just a link to something on the internet, really. We only segregate to find the correct colour of link buttons, for example to disney+ or netflix or iPlayer, we have the correctly coloured button.
-
