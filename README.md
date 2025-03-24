@@ -24,7 +24,25 @@ Only reason I didn't keep it in this repo is incase lots of people suddenly scra
 
 I created an app at [developers.spotify.com/dashboard](https://developers.spotify.com/dashboard) to get a client id and client secret.
 
-I created an API key for YouTube Data API v3 from my google cloud console account
+I created an API key for YouTube Data API v3 and Google Books from my google cloud console account.
 
 I created a LastFM developer account and got an API key.
+
+I got an auth token from the KIT website checking the network panel, by manually uploading an image and checking the headers and storing the token. This will need to be done each time.
+
+## Recommendations
+
+Pretty broad, since we can recommend __anything__. Need to narrow down into broad categories.
+
+### Music
+
+Music is it's own category, as we want links to specific websites for apple music, spotify, youtube.
+
+### Books
+
+Kind of special since they're such high value to listeners/readers.
+
+### Everything else...
+
+Is just a link to something on the internet, really. We only segregate to find the correct colour of link buttons, for example to disney+ or netflix or iPlayer, we have the correctly coloured button.
 

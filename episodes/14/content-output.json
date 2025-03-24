@@ -1,0 +1,159 @@
+{
+  "$schema": "../../content-output.schema.json",
+  "episode": {
+    "number": 14,
+    "date": "21st March",
+    "title": "something"
+  },
+  "intro": "We've got Raxit Ramani, a highly experienced Agile Coach and Project Manager talking about Scaled Agile, SAFe, stories of things being wrong, and how different government bodies have operated in the past.",
+  "showNotes": [
+    "Michael is still pale after a weekend in the sun. He didn't shed a tear after being in the Spa's flotation tank",
+    "Raxit had a good job interview"
+  ],
+  "quickfireQuestions": [
+    "Your opinion of Agile, in one word?",
+    "What’s the biggest crime when making container images?"
+  ],
+  "breakingProdLeaderboard": {
+    "summary": "We have a new winner! With 3 distinct stories!"
+  },
+  "bigTopic": {
+    "title": "DevOps & SRE conversations",
+    "questions": [
+      "How would you describe modern agile software development to a new developer?",
+      "How does a department know when it’s ready for a scaled agile framework?"
+    ]
+  },
+  "news": [
+    {
+      "title": "GitHub Action supply chain attack: reviewdog/action-setup | Wiz Blog",
+      "description": "A supply chain attack on tj-actions/changed-files leaked secrets. Wiz Research found another attack on reviewdog/actions-setup, possibly causing the compromise.",
+      "uploadedImageUrl": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/e5CcetoagLB3XTPvW7TTeJ/email?fm=jpg",
+      "url": "https://www.wiz.io/blog/new-github-action-supply-chain-attack-reviewdog-action-setup",
+      "buttonBackgroundColour": "#0754ec",
+      "buttonTextColour": "#FFFFFF",
+      "newsProvider": "Wiz"
+    },
+    {
+      "title": "Google to acquire Wiz for $32 billion - Help Net Security",
+      "description": "Google acquires Wiz for $32 billion. Wiz’s products will continue to work and be available across all major clouds.",
+      "uploadedImageUrl": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/2Zz3oxahTbhDarrFzfNtai/email?fm=jpg",
+      "url": "https://www.helpnetsecurity.com/2025/03/18/google-acquire-wiz-32-billion/",
+      "buttonBackgroundColour": "#fcce00",
+      "buttonTextColour": "#FFFFFF",
+      "newsProvider": "Help Net Security"
+    },
+    {
+      "title": "Amazon removes privacy option, all Alexa recordings will now go to the cloud",
+      "description": "An email that Amazon sent to customers confirms that the Do Not Send Voice Recordings feature they enabled on supported Echo devices will soon no longer be...",
+      "uploadedImageUrl": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/xkQK4KaLRQ7kbf1tndugt8/email?fm=jpg",
+      "url": "https://www.techspot.com/news/107175-amazon-removing-option-local-alexa-processing-forcing-all.html",
+      "buttonBackgroundColour": "#0e5bb2",
+      "buttonTextColour": "#FFFFFF",
+      "newsProvider": "TechSpot"
+    },
+    {
+      "title": "Chinese EV maker BYD says fast-charging system could be as quick as filling up a tank",
+      "description": "BYD unveils platform with charging power of 1,000 kW, which would be twice as fast as Tesla’s supercharging",
+      "uploadedImageUrl": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/ksUyDhgXq5WDrQ7Bo5me5H/email",
+      "url": "https://www.theguardian.com/technology/2025/mar/18/byd-ev-fast-charging-system-petrol-fuel-speed",
+      "buttonBackgroundColour": "#062962",
+      "buttonTextColour": "#eef915",
+      "newsProvider": "The Guardian"
+    }
+  ],
+  "recommendations": [
+    {
+      "sectionName": "relatedTopic",
+      "displayName": "DevOps & SRE",
+      "items": [
+        {
+          "type": "Website",
+          "title": "A Tour of Go",
+          "description": "A Tour of Go is an introduction to the Go programming language.",
+          "url": "https://scaledagile.com",
+          "uploadedImageUrl": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/rPBFXyVzh3DjRsr4rcuHF1/email",
+          "buttonBackgroundColour": "#aaff89",
+          "buttonTextColour": "#000000"
+        },
+        {
+          "type": "Book",
+          "title": "Release It!",
+          "authors": ["Michael T. Nygard"],
+          "description": "Design and Deploy Production-Ready Software",
+          "url": "https://pragprog.com/titles/mnee2/release-it-2nd-edition/",
+          "uploadedImageUrl": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/2Zz3oxahTbhDarrFzfNtai/email",
+        }
+      ]
+    },
+    {
+      "sectionName": "music",
+      "displayName": "🎵 Music",
+      "items": [
+        {
+          "artist": "Sharon Van Etten",
+          "album": "Sharon Van Etten & The Attachment Theory"
+        },
+        {
+          "artist": "The Bug Club"
+        },
+        {
+          "artist": "Truthpaste"
+        }
+      ]
+    },
+    {
+      "sectionName": "tv_and_film",
+      "displayName": "📺 TV & Film 🎬",
+      "items": [
+        {
+          "title": "School Swap: UK to USA",
+          "url": "https://www.channel4.com/programmes/school-swap-uk-to-usa",
+          "description": "South London teens swap lives with high school students from rural bible-belt USA",
+          "uploadedImageUrl": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/rPBFXyVzh3DjRsr4rcuHF1/email",
+          "mediaProvider": "Channel 4",
+          "buttonBackgroundColour": "#aaff89",
+          "buttonTextColour": "#000000"
+        },
+        {
+          "title": "Adolesence",
+          "url": "https://www.netflix.com/gb/title/81756069",
+          "description": "When a 13-year-old is accused of the murder of a classmate, his family, therapist and the detective in charge are all left asking: what really happened?",
+          "uploadedImageUrl": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/cvSZuj1rRXEbSeyzyi6995/email",
+          "mediaProvider": "Netflix",
+          "buttonBackgroundColour": "#e50a14",
+          "buttonTextColour": "#000000"
+        }
+      ]
+    },
+    {
+      "sectionName": "books",
+      "displayName": "📚 Books",
+      "items": [
+        {
+          "title": "The ART of Avoiding a Train Wreck: Practical Tips...",
+          
+          "authors": [
+            "Em Campbell-Pretty",
+            "Adrienne L. Wilson"
+          ],
+          "url": "https://www.abebooks.co.uk/9781094752280"
+        }
+      ]
+    },
+    {
+      "sectionName": "podcasts",
+      "displayName": "🎙️ Podcasts",
+      "items": [
+        {
+          "title": "Steering Engineering",
+          "url": "https://steering-engineering-podcast.simplecast.com/"
+        }
+      ]
+    }
+  ],
+  "joke": {
+    "setup": "A man has been admitted to hospital with 12 small toy horses found inside his anus.",
+    "punchline": "His condition has been described as stable."
+  }
+}

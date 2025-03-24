@@ -1,0 +1,115 @@
+{
+    "$schema": "../../content-input.schema.json",
+    "episode": {
+      "number": 14,
+      "date": "21st March",
+      "title": "something"
+    },
+    "intro": "We've got Raxit Ramani, a highly experienced Agile Coach and Project Manager talking about Scaled Agile, SAFe, stories of things being wrong, and how different government bodies have operated in the past.",
+    "showNotes": [
+      "Michael is still pale after a weekend in the sun. He didn't shed a tear after being in the Spa's flotation tank",
+      "Raxit had a good job interview"
+    ],
+    "quickfireQuestions": [
+      "Your opinion of Agile, in one word?",
+      "What’s the biggest crime when making container images?"
+    ],
+    "breakingProdLeaderboard": {
+      "summary": "We have a new winner! With 3 distinct stories!"
+    },
+    "bigTopic": {
+      "title": "DevOps & SRE conversations",
+      "questions": [
+        "How would you describe modern agile software development to a new developer?",
+        "How does a department know when it’s ready for a scaled agile framework?"
+      ]
+    },
+    "news": [
+        {
+            "url": "https://www.wiz.io/blog/new-github-action-supply-chain-attack-reviewdog-action-setup"
+        },
+        {
+            "url": "https://www.helpnetsecurity.com/2025/03/18/google-acquire-wiz-32-billion/"
+        },
+        {
+            "url": "https://www.techspot.com/news/107175-amazon-removing-option-local-alexa-processing-forcing-all.html"
+        },
+        {
+            "url": "https://www.theguardian.com/technology/2025/mar/18/byd-ev-fast-charging-system-petrol-fuel-speed"
+        }
+    ],
+    "recommendations": [
+        {
+          "sectionName": "relatedTopic",
+          "displayName": "DevOps & SRE",
+          "items": [
+            {
+              "type": "Website",
+              "title": "A Tour of Go",
+              "url": "https://scaledagile.com"
+            },
+            {
+              "type": "Book",
+              "title": "Release It!",
+              "url": "https://pragprog.com/titles/mnee2/release-it-2nd-edition/"
+            }
+          ]
+        },
+        {
+          "sectionName": "music",
+          "displayName": "🎵 Music",
+          "items": [
+            {
+              "artist": "Sharon Van Etten",
+              "album": "Sharon Van Etten & The Attachment Theory"
+            },
+            {
+              "artist": "The Bug Club"
+            },
+            {
+              "artist": "Truthpaste"
+            }
+          ]
+        },
+        {
+          "sectionName": "tv_and_film",
+          "displayName": "📺 TV & Film 🎬",
+          "items": [
+            {
+              "title": "School Swap: UK to USA",
+              "url": "https://www.channel4.com/programmes/school-swap-uk-to-usa"
+            },
+            {
+              "title": "Adolesence",
+              "url": "https://www.netflix.com/gb/title/81756069"
+            }
+          ]
+        },
+        {
+          "sectionName": "books",
+          "displayName": "📚 Books",
+          "items": [
+            {
+              "title": "The ART of Avoiding a Train Wreck: Practical Tips...",
+              "authors": ["Em Campbell-Pretty", "Adrienne L. Wilson"],
+              "url": "https://www.abebooks.co.uk/9781094752280"
+            }
+          ]
+        },
+        {
+          "sectionName": "podcasts",
+          "displayName": "🎙️ Podcasts",
+          "items": [
+            {
+              "title": "Steering Engineering",
+              "url": "https://steering-engineering-podcast.simplecast.com/"
+            }
+          ]
+        }
+    ],
+    "joke": {
+      "setup": "A man has been admitted to hospital with 12 small toy horses found inside his anus.",
+      "punchline": "His condition has been described as stable."
+    }
+  }
+  

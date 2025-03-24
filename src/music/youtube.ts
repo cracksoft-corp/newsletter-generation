@@ -29,7 +29,7 @@ export interface YouTubeChannelAttributes {
     };
   }
   
-  const apiKey = process.env.YOUTUBE_API_KEY;
+  const apiKey = process.env.GOOGLE_API_KEY;
   if (!apiKey) {
     throw new Error("Missing YouTube API Key in environment variables (YOUTUBE_API_KEY).");
   }
