@@ -77,40 +77,22 @@
         "items": {
           "type": "object",
           "properties": {
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "uploadedImageUrl": {
-              "type": "string",
-              "format": "uri"
-            },
-            "url": {
-              "type": "string",
-              "format": "uri"
-            },
-            "buttonBackgroundColour": {
-              "type": "string"
-            },
-            "buttonTextColour": {
-              "type": "string"
-            },
-            "newsProvider": {
-              "type": "string"
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": { "type": "string" },
+                "title": { "type": "string" },
+                "description": { "type": "string" },
+                "uploadedImageUrl": { "type": "string", "format": "uri" },
+                "url": { "type": "string", "format": "uri" },
+                "buttonText": { "type": "string" },
+                "buttonBackgroundColour": { "type": "string" },
+                "buttonTextColour": { "type": "string" }
+              },
+              "required": [ "type", "title", "url", "description", "uploadedImageUrl", "buttonBackgroundColour", "buttonTextColour", "buttonText"],
+              "additionalProperties": false
             }
-          },
-          "required": [
-            "title",
-            "description",
-            "uploadedImageUrl",
-            "url",
-            "buttonBackgroundColour",
-            "buttonTextColour",
-            "newsProvider"
-          ],
-          "additionalProperties": false
+          }
         }
       },
       "recommendations": {
@@ -180,10 +162,11 @@
                         "description": { "type": "string" },
                         "uploadedImageUrl": { "type": "string", "format": "uri" },
                         "url": { "type": "string", "format": "uri" },
+                        "buttonText": { "type": "string" },
                         "buttonBackgroundColour": { "type": "string" },
                         "buttonTextColour": { "type": "string" }
                       },
-                      "required": [ "type", "title", "url", "description", "uploadedImageUrl", "buttonBackgroundColour", "buttonTextColour" ],
+                      "required": [ "type", "title", "url", "description", "uploadedImageUrl", "buttonBackgroundColour", "buttonTextColour", "buttonText"],
                       "additionalProperties": false
                     }
                   }
@@ -198,18 +181,22 @@
               "then": {
                 "properties": {
                   "items": {
-                    "type": "object",
-                    "properties": {
-                      "type": { "type": "string" },
-                      "title": { "type": "string" },
-                      "description": { "type": "string" },
-                      "uploadedImageUrl": { "type": "string", "format": "uri" },
-                      "url": { "type": "string", "format": "uri" },
-                      "buttonBackgroundColour": { "type": "string" },
-                      "buttonTextColour": { "type": "string" }
-                    },
-                    "required": [ "type", "title", "url", "description", "uploadedImageUrl", "buttonBackgroundColour", "buttonTextColour" ],
-                    "additionalProperties": false
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": { "type": "string" },
+                        "title": { "type": "string" },
+                        "description": { "type": "string" },
+                        "url": { "type": "string", "format": "uri" },
+                        "uploadedImageUrl": { "type": "string", "format": "uri" },
+                        "buttonText": { "type": "string" },
+                        "buttonBackgroundColour": { "type": "string" },
+                        "buttonTextColour": { "type": "string" }
+                      },
+                      "required": [ "title", "description", "url", "uploadedImageUrl", "buttonText", "buttonBackgroundColour", "buttonTextColour" ],
+                      "additionalProperties": false
+                    }
                   }
                 }
               },
@@ -226,15 +213,16 @@
                     "items": {
                       "type": "object",
                       "properties": {
+                        "type": { "type": "string" },
                         "title": { "type": "string" },
                         "description": { "type": "string" },
                         "url": { "type": "string", "format": "uri" },
                         "uploadedImageUrl": { "type": "string", "format": "uri" },
-                        "mediaProvider": { "type": "string" },
+                        "buttonText": { "type": "string" },
                         "buttonBackgroundColour": { "type": "string" },
                         "buttonTextColour": { "type": "string" }
                       },
-                      "required": [ "title", "description", "url", "uploadedImageUrl", "mediaProvider", "buttonBackgroundColour", "buttonTextColour" ],
+                      "required": [ "title", "description", "url", "uploadedImageUrl", "buttonText", "buttonBackgroundColour", "buttonTextColour" ],
                       "additionalProperties": false
                     }
                   }
@@ -255,17 +243,14 @@
                         "properties": {
                           "type": { "type": "string" },
                           "title": { "type": "string" },
-                          "authors": {
-                            "type": "array",
-                            "items": { "type": "string" }
-                          },
                           "description": { "type": "string" },
                           "uploadedImageUrl": { "type": "string", "format": "uri" },
                           "url": { "type": "string", "format": "uri" },
                           "buttonBackgroundColour": { "type": "string" },
-                          "buttonTextColour": { "type": "string" }
+                          "buttonTextColour": { "type": "string" },
+                          "buttonText": { "type": "string" }
                         },
-                        "required": [ "type", "title", "url", "authors", "description", "uploadedImageUrl", "buttonBackgroundColour", "buttonTextColour" ],
+                        "required": [ "type", "title", "url", "description", "uploadedImageUrl", "buttonBackgroundColour", "buttonTextColour", "buttonText" ],
                         "additionalProperties": false
                     }
                   }
@@ -284,10 +269,16 @@
                     "items": {
                       "type": "object",
                       "properties": {
+                        "type": { "type": "string" },
                         "title": { "type": "string" },
-                        "url": { "type": "string", "format": "uri" }
+                        "description": { "type": "string" },
+                        "uploadedImageUrl": { "type": "string", "format": "uri" },
+                        "url": { "type": "string", "format": "uri" },
+                        "buttonBackgroundColour": { "type": "string" },
+                        "buttonTextColour": { "type": "string" },
+                        "buttonText": { "type": "string" }
                       },
-                      "required": [ "title", "url" ],
+                      "required": [ "type", "title", "url", "description", "uploadedImageUrl", "buttonBackgroundColour", "buttonTextColour", "buttonText" ],
                       "additionalProperties": false
                     }
                   }

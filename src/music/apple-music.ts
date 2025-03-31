@@ -67,7 +67,7 @@ export function getEditorialSummary(editorialNotes: {
   standard?: string;
   short?: string;
 }): string {
-  if (editorialNotes.standard) {
+  if (editorialNotes && editorialNotes.standard) {
     const original = editorialNotes.standard;
     // Split into sentences. (This is a simple split; for more complex HTML, you may need a proper parser.)
     const sentences = original.split(/(?<=[.!?])\s+/);
@@ -103,7 +103,7 @@ export function getEditorialSummary(editorialNotes: {
     // Optionally, if summaryStripped still exceeds 150 characters, you may want to truncate further.
     // That requires a more advanced solution that preserves HTML structure.
     return summary;
-  } else if (editorialNotes.short) {
+  } else if (editorialNotes && editorialNotes.short) {
     return editorialNotes.short;
   }
   return "";

@@ -43,108 +43,84 @@ export interface Joke {
 // Recommendation Sections (Discriminated Union)
 //
 export type RecommendationSection =
-  | MusicSection
   | RelatedTopicSection
+  | MusicSection
   | TechSection
   | TvAndFilmSection
   | BooksSection
   | PodcastsSection
-  | UnknownSection; // fallback for unrecognized sectionName
+  | MiscellaneousSection;
 
-//
-// 1) Music
-//
 export interface MusicSection {
   sectionName: "music";
   displayName: string;
   items: MusicItem[];
 }
 
-export interface MusicItem {
-  artist: string;
-  album?: string;
-}
-
-//
-// 2) Related Topic
-//
-export interface RelatedTopicSection {
-  sectionName: "relatedTopic";
-  displayName: string;
-  items: RelatedTopicItem[];
-}
-
-export interface RelatedTopicItem {
-  type: string;
-  title: string;
-  url: string;
-  authors?: string[];
-}
-
-//
-// 3) Tech
-//
-export interface TechSection {
-  sectionName: "tech";
-  displayName: string;
-  items: TechItem[];
-}
-
-export interface TechItem {
-  title: string;
-  description: string;
-  url: string;
-}
-
-//
-// 4) TV & Film
-//
 export interface TvAndFilmSection {
   sectionName: "tv_and_film";
   displayName: string;
   items: TvAndFilmItem[];
 }
 
-export interface TvAndFilmItem {
-  title: string;
-  url: string;
-}
 
-//
-// 5) Books
-//
 export interface BooksSection {
   sectionName: "books";
   displayName: string;
   items: BookItem[];
 }
 
-export interface BookItem {
-  title: string;
-  authors?: string[];
-  url: string;
-}
-
-//
-// 6) Podcasts
-//
 export interface PodcastsSection {
   sectionName: "podcasts";
   displayName: string;
   items: PodcastItem[];
 }
 
-export interface PodcastItem {
+export interface RelatedTopicSection {
+  sectionName: "relatedTopic";
+  displayName: string;
+  items: RelatedTopicItem[];
+}
+
+export interface MiscellaneousSection {
+  sectionName: "miscellaneous";
+  displayName: string;
+  items: WebItem[];
+}
+
+export type RelatedTopicItem = WebItem | BookItem | PodcastItem | TvAndFilmItem; // no music item
+
+export interface MusicItem {
+  artist: string;
+  album?: string;
+}
+
+export interface TechSection {
+  sectionName: "tech";
+  displayName: string;
+  items: WebItem[];
+}
+
+export interface WebItem {
+  type: "web";
   title: string;
   url: string;
 }
 
-//
-// 7) Fallback for unknown sectionName
-//
-export interface UnknownSection {
-  // Any string that doesn't match the known section names above
-  sectionName: string;
-  displayName: string;
-  items: unknown[]; // or a more generic shape if you prefer
+export interface PodcastItem {
+  type: "podcast";
+  title: string;
+  url: string; 
+}
+
+export interface TvAndFilmItem {
+  type: "tv_and_film";
+  title: string;
+  url: string;
+}
+
+export interface BookItem {
+  type: "book";
+  title: string;
+  authors: string[];
 }

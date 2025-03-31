@@ -1,9 +1,12 @@
 import * as fs from "fs/promises";
 import * as path from "path";
-import { MusicItem, MusicSection, NewsletterEpisode, TvAndFilmSection } from "./models/content-input";
+import { BooksSection, MusicSection, NewsletterEpisode, TvAndFilmSection, WebItem } from "./models/content-input";
 import { fetchAdditionalMusicDataAndImages } from "./music/music";
 import { fetchAdditionalNewsInfo } from "./news/get-news";
 import { fetchAdditionalTvAndFilmDataAndImages } from "./tv_film/tv_film";
+import { getBooks } from "./books/get-books";
+import { NewsletterEpisodeOutput, OutputItem } from "./models/content-output";
+import { fetchWebItems } from "./get-web-item";
 
 const episodeArgument = process.argv[2];
 if (!episodeArgument) {
@@ -27,10 +30,12 @@ async function ensureDirectories(episodeNumber: number): Promise<void> {
   const baseDir = path.join("episodes", episodeNumber.toString());
   const imagesDir = path.join(baseDir, "images");
   const musicDir = path.join(imagesDir, "music");
+  const manualDir = path.join(imagesDir, "manual_images");
   const newsDir = path.join(imagesDir, "news");
   const tvAndFilmDir = path.join(imagesDir, "tv_and_film");
 
   await fs.mkdir(musicDir, { recursive: true });
+  await fs.mkdir(manualDir, { recursive: true });
   await fs.mkdir(newsDir, { recursive: true });
   await fs.mkdir(tvAndFilmDir, { recursive: true });
 }
@@ -39,18 +44,15 @@ async function fetchExtraDataAndImages() {
   await ensureDirectories(episodeNumber);
   const contentRaw = await fs.readFile(path.join("episodes", episodeNumber.toString(), "content-input.json"), "utf-8");
   let content = JSON.parse(contentRaw) as NewsletterEpisode;
+  let output = JSON.parse(contentRaw) as NewsletterEpisodeOutput;
 
-  // const musicIndex = content.recommendations.findIndex((item) => item.sectionName === "music");
-  // if (musicIndex !== -1 && content.recommendations[musicIndex].items.length > 0) {
-  //   const musicSection = content.recommendations[musicIndex] as MusicSection;
-  //   console.log(`Fetching music data for ${musicSection.items.length} items...`);
-  //   const updatedContent = await fetchAdditionalMusicDataAndImages(episodeNumber, musicSection.items);
-  //   content.recommendations[musicIndex].items = updatedContent;
-  // }
-
-  //todo: add books.
-  //todo: add books within relatedTopic.
-  //todo: add podcasts/tech
+  const musicIndex = content.recommendations.findIndex((item) => item.sectionName === "music");
+  if (musicIndex !== -1 && content.recommendations[musicIndex].items.length > 0) {
+    const musicSection = content.recommendations[musicIndex] as MusicSection;
+    console.log(`Fetching music data for ${musicSection.items.length} items...`);
+    const updatedContent = await fetchAdditionalMusicDataAndImages(episodeNumber, musicSection.items);
+    output.recommendations[musicIndex].items = updatedContent;
+  }
 
   // need new newsletter version.
   // Make all web links look the same format.
@@ -66,17 +68,72 @@ async function fetchExtraDataAndImages() {
     const tv_and_film_section = content.recommendations[tv_and_film_index] as TvAndFilmSection;
     console.log(`Fetching tv and film data for ${tv_and_film_section.items.length} items...`);
     const updatedContent = await fetchAdditionalTvAndFilmDataAndImages(episodeNumber, tv_and_film_section.items);
-    content.recommendations[tv_and_film_index].items = updatedContent;
+    output.recommendations[tv_and_film_index].items = updatedContent;
   }
 
   if (content.news && content.news.length > 0) {
     console.log(`Fetching news data for ${content.news.length} items...`);
-    content.news = await fetchAdditionalNewsInfo(episodeNumber, content.news);
+    output.news = await fetchAdditionalNewsInfo(episodeNumber, content.news);
   }
 
-  content["$schema"] = "../../content-output.schema.json";
+  const books_index = content.recommendations.findIndex((item) => item.sectionName === "books");
+  if (books_index !== -1 && content.recommendations[books_index].items.length > 0) {
+    const books_section = content.recommendations[books_index] as BooksSection;
+    console.log(`Fetching book data for ${books_section.items.length} items...`);
+    const updatedContent = await getBooks(episodeNumber, books_section.items);
+    output.recommendations[books_index].items = updatedContent as OutputItem[];
+  }
+
+  const tech_index = content.recommendations.findIndex((item) => item.sectionName === "tech");
+  if (tech_index !== -1 && content.recommendations[tech_index].items.length > 0) {
+    const tech_section = content.recommendations[tech_index] as BooksSection;
+    console.log(`Fetching book data for ${tech_section.items.length} items...`);
+    const updatedContent = await fetchWebItems(episodeNumber, tech_section.items as any, "Learn More");
+    output.recommendations[tech_index].items = updatedContent as OutputItem[];
+  }
+
+  const podcasts_index = content.recommendations.findIndex((item) => item.sectionName === "podcasts");
+  if (podcasts_index !== -1 && content.recommendations[podcasts_index].items.length > 0) {
+    const podcasts_section = content.recommendations[podcasts_index];
+    console.log(`Fetching podcast data for ${podcasts_section.items.length} items...`);
+    const podcasts = await fetchWebItems(episodeNumber, podcasts_section.items as WebItem[], "Listen");
+    output.recommendations[podcasts_index].items = podcasts;
+  }
+  
+  const related_topic_index = content.recommendations.findIndex((item) => item.sectionName === "relatedTopic");
+  if (related_topic_index !== -1 && content.recommendations[related_topic_index].items.length > 0) {
+    const related_topic_section = content.recommendations[related_topic_index];
+    console.log(`Fetching related topic data for ${related_topic_section.items.length} items...`);
+    for (const idx in related_topic_section.items) {
+      const item = related_topic_section.items[idx] as any;
+      if (item.type === "book") {
+        const book = (await getBooks(episodeNumber, [item]))[0];
+        output.recommendations[related_topic_index].items[idx] = book;
+      }
+      if (item.type === "tv_and_film") {
+        const tv_and_film = (await fetchAdditionalTvAndFilmDataAndImages(episodeNumber, [item]))[0];
+        output.recommendations[related_topic_index].items[idx] = tv_and_film;
+      }
+      if (item.type === "podcast") {
+        const podcast = (await fetchWebItems(episodeNumber, [item], "Listen"))[0];
+        output.recommendations[related_topic_index].items[idx] = podcast;
+      }
+      if (item.type === "web") {
+        const web_item = (await fetchWebItems(episodeNumber, [item], "Visit"))[0];
+        output.recommendations[related_topic_index].items[idx] = web_item;
+      }
+      // fetch proper details for YouTube links
+      if (item.type === "video") {
+        const web_item = (await fetchWebItems(episodeNumber, [item], "Watch"))[0];
+        output.recommendations[related_topic_index].items[idx] = web_item;
+      }
+    }
+  }
+
+
+  output["$schema"] = "../../content-output.schema.json";
   // Optionally write back the updated content to a new file
-  await fs.writeFile(path.join("episodes", episodeNumber.toString(), "content-output.json"), JSON.stringify(content, null, 2));
+  await fs.writeFile(path.join("episodes", episodeNumber.toString(), "content-output.json"), JSON.stringify(output, null, 2));
 }
 
 fetchExtraDataAndImages().then(() => {

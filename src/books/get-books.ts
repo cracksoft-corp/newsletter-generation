@@ -1,5 +1,8 @@
 import { downloadImage } from "../images/download-image";
-import { BookItemOutput } from "../models/content-output";
+import { uploadImage } from "../images/upload-image-to-kit";
+import { OutputItem } from "../models/content-output";
+import { BookItem } from "../models/content-input";
+import { v4 as uuidv4 } from "uuid";
 
 export interface GoogleBookAttributes {
     id: string;
@@ -24,23 +27,46 @@ if (!booksApiKey) {
     throw new Error("Missing Google Books API Key in environment variables (GOOGLE_API_KEY).");
 }
 
-export async function getBook(episodeNumber: number, title: string, authors: string[]): Promise<BookItemOutput> {
-    const query = `${title} ${authors.join(" ")}`;
-    let googleBook = await getGoogleBook(query);
-    let thumbnail = getGoogleBookThumbnail(googleBook);
-    if (!thumbnail) {
-        console.error(`No thumbnail found for book: ${title}`);
-    } else {
-        downloadImage(thumbnail, `episodes/${episodeNumber}/images/books/${title}`);
+export async function getBooks(episodeNumber: number, books: BookItem[]): Promise<OutputItem[]> {
+    const updatedBooks: OutputItem[] = [];
+    for (const idx in books) {
+        try {
+            const book = books[idx];
+            const googleBook = await getGoogleBook(book.title, book.authors);
+            const thumbnail = getGoogleBookThumbnail(googleBook);
+            let uploadedImageUrl = "";
+            if (!thumbnail) {
+                console.error(`No thumbnail found for book: ${book.title}`);
+            } else {
+                let imageId = uuidv4();
+                const localPath = `episodes/${episodeNumber}/images/books/${imageId}`;
+                console.log(`Thumbnail Url to download is ${thumbnail}`);
+                await downloadImage(thumbnail, localPath);
+                uploadedImageUrl = await uploadImage(localPath);
+            }
+            updatedBooks[idx] = {
+                type: "book",
+                title: `${book.title}, by ${book.authors.join(", ")}`,
+                description: googleBook.volumeInfo.description || "",
+                uploadedImageUrl,
+                url: getGoogleBookPreviewLink(googleBook),
+                buttonText: "Google Books",
+                buttonBackgroundColour: "#337ce9",
+                buttonTextColour: "#FFFFFF",
+            };
+        } catch (error) {
+            console.error(`Error fetching book data for ${books[idx].title}:`, error);
+        }
     }
+    return updatedBooks;
 }
-
 
 /**
  * Fetches a Google Book based on a search query.
  * Returns the first book found.
  */
-export async function getGoogleBook(query: string): Promise<GoogleBookAttributes> {
+export async function getGoogleBook(title: string, authors: string[]): Promise<GoogleBookAttributes> {
+    const query = `${title} ${authors.join(" ")}`;
     const endpoint = `https://www.googleapis.com/books/v1/volumes`
         + `?q=${encodeURIComponent(query)}`
         + `&key=${booksApiKey}`

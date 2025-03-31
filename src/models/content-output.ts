@@ -8,21 +8,10 @@ export interface NewsletterEpisodeOutput {
   quickfireQuestions: string[];
   breakingProdLeaderboard: BreakingProdLeaderboard;
   bigTopic: BigTopic;
-  news: NewsItemOutput[];
+  news: OutputItem[];
   recommendations: RecommendationsOutput; // now an array of sections
   joke: JokeOutput;
 }
-
-export interface NewsItemOutput {
-  title: string;
-  description: string;
-  uploadedImageUrl: string;
-  url: string;
-  buttonBackgroundColour: string;
-  buttonTextColour: string;
-  newsProvider: string;
-}
-
 // New recommendations structure as an array of section outputs
 export type RecommendationsOutput = RecommendationSectionOutput[];
 
@@ -33,19 +22,23 @@ export type RecommendationSectionOutput =
   | TvAndFilmSectionOutput
   | BooksSectionOutput
   | PodcastsSectionOutput
-  | UnknownSectionOutput;
+  | MiscellaneousSectionOutput;
 
 export interface RelatedTopicSectionOutput {
   sectionName: "relatedTopic";
   displayName: string;
-  items: RelatedTopicItemOutput[];
+  items: OutputItem[];
 }
 
-export interface RelatedTopicItemOutput {
-  type: string;
+export interface OutputItem {
+  type: "web" | "tv_and_film" | "book" | "podcast" ;
   title: string;
+  uploadedImageUrl: string;
+  description: string;
   url: string;
-  authors?: string[];
+  buttonText: string;
+  buttonBackgroundColour: string;
+  buttonTextColour: string;
 }
 
 export interface MusicSectionOutput {
@@ -70,67 +63,31 @@ export interface MusicLinkOutput {
 export interface TechSectionOutput {
   sectionName: "tech";
   displayName: string;
-  items: TechItemOutput[];
-}
-
-export interface TechItemOutput {
-  title: string;
-  description: string;
-  url: string;
+  items: OutputItem[];
 }
 
 export interface TvAndFilmSectionOutput {
   sectionName: "tv_and_film";
   displayName: string;
-  items: TvItemOutput[];
-}
-
-export interface TvItemOutput {
-  title: string;
-  description: string;
-  url: string;
-  uploadedImageUrl: string;
-  mediaProvider: string;
-  buttonBackgroundColour: string;
-  buttonTextColour: string;
+  items: OutputItem[];
 }
 
 export interface BooksSectionOutput {
   sectionName: "books";
   displayName: string;
-  items: BookItemOutput[];
-}
-
-export type BookItemOutput = {
-  title: string;
-  authors: string[];
-  description: string;
-  url: string;
-  uploadedImageUrl: string;
-  buttonBackgroundColour: string;
-  buttonTextColour: string;
+  items: OutputItem[];
 }
 
 export interface PodcastsSectionOutput {
   sectionName: "podcasts";
   displayName: string;
-  items: PodcastItemOutput[];
+  items: OutputItem[];
 }
 
-export type PodcastItemOutput = {
-  title: string;
-  description: string;
-  url: string;
-  uploadedImageUrl: string;
-  buttonBackgroundColour: string;
-  buttonTextColour: string;
-}
-
-// Fallback for unknown section names if needed.
-export interface UnknownSectionOutput {
-  sectionName: string; // any value not matching the known ones
+export interface MiscellaneousSectionOutput {
+  sectionName: "miscellaneous";
   displayName: string;
-  items: unknown[];
+  items: OutputItem[];
 }
 
 export interface JokeOutput {
