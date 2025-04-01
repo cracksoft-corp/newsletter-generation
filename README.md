@@ -45,3 +45,7 @@ Kind of special since they're such high value to listeners/readers.
 ### Everything else
 
 Is just a link to something on the internet, really. We only segregate to find the correct colour of link buttons, for example to disney+ or netflix or iPlayer, we have the correctly coloured button.
+
+## Linky dinks
+
+Need the url for the episode for appley wapply podcasts, and spotify

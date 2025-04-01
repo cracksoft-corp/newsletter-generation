@@ -7,10 +7,11 @@ import { fetchAdditionalTvAndFilmDataAndImages } from "./tv_film/tv_film";
 import { getBooks } from "./books/get-books";
 import { NewsletterEpisodeOutput, OutputItem } from "./models/content-output";
 import { fetchWebItems } from "./get-web-item";
+import { uploadImage } from "./images/upload-image-to-kit";
 
 const episodeArgument = process.argv[2];
 if (!episodeArgument) {
-  console.error("Usage: node dist/index.js <episode-number>");
+  console.error("Usage: node dist/fetch-data.js <episode-number>");
   process.exit(1);
 }// Validate that the episode number is a positive integer
 const episodeNumber = parseInt(episodeArgument, 10);
@@ -54,12 +55,17 @@ async function fetchExtraDataAndImages() {
     output.recommendations[musicIndex].items = updatedContent;
   }
 
+  output["$schema"] = "../../content-output.schema.json";
+  const episodeCoverUrl = await uploadImage(path.join("episodes", episodeNumber.toString(), "episode_cover.png"));
+  output.episode.episodeCoverUrl = episodeCoverUrl;
+
   // need new newsletter version.
   // Make all web links look the same format.
   // Need link to the breaking prod leaderboard.
   // Add link to the website.
   // Add link at the bottom to review us on apple podcasts, review us on spotify.
   // Add link to give us feedback on our form.
+  
   // Add link for "someone else forwarded you this email? subscribe here."
   // Add link to the newsletter archive.
 
@@ -130,8 +136,15 @@ async function fetchExtraDataAndImages() {
     }
   }
 
-
-  output["$schema"] = "../../content-output.schema.json";
+  // Add links to the episode, manual for now.
+  output.episode.links = { apple: "", spotify: "" };
+  output.images = {
+    "web_play": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/f6u88h81rWLFhFZJHUosWh/email",
+    "apple_podcasts": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/ppdaijx57tkBjaJFBC2R39/email",
+    "apple_music": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/hXevMxeUeuPu7HKu25WzGK/email",
+    "spotify": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/i5xxskaPrp8mgjxGE4sXBz/email",
+    "youtube_music": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/yKkaciMX9VkhtS37udSLL/email"
+  };
   // Optionally write back the updated content to a new file
   await fs.writeFile(path.join("episodes", episodeNumber.toString(), "content-output.json"), JSON.stringify(output, null, 2));
 }

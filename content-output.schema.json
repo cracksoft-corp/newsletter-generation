@@ -17,12 +17,45 @@
           },
           "title": {
             "type": "string"
-          }
+          },
+          "episodeCoverUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "links": {
+              "type": "object",
+              "properties": {
+                "apple": { "type": "string", "format": "uri" },
+                "spotify": { "type": "string", "format": "uri" }
+              },
+              "required": [ "apple", "spotify" ],
+              "additionalProperties": false
+            }
         },
         "required": [
           "number",
           "date",
-          "title"
+          "title",
+          "episodeCoverUrl",
+          "links"
+        ],
+        "additionalProperties": false
+      },
+      "images": {
+        "type": "object",
+        "properties": {
+          "web_play": { "type": "string", "format": "uri" },
+          "apple_podcasts": { "type": "string", "format": "uri" },
+          "apple_music": { "type": "string", "format": "uri" },
+          "spotify": { "type": "string", "format": "uri" },
+          "youtube_music": { "type": "string", "format": "uri" }
+        },
+        "required": [
+          "web_play",
+          "apple_podcasts",
+          "apple_music",
+          "spotify",
+          "youtube_music"
         ],
         "additionalProperties": false
       },
@@ -312,3 +345,4 @@
     ],
     "additionalProperties": false
   }
+
