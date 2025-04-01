@@ -4,7 +4,9 @@
   "description": "A tool to generate newsletters",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "fetch-data": "node dist/fetch-data.js",
+    "create-broadcast": "node dist/create-broadcast.js",
+    "upload-single-image": "node dist/upload-single-image.js",
     "build": "tsc"
   },
   "devDependencies": {
@@ -14,6 +16,7 @@
     "@convertkit/file-kit": "^0.1.30",
     "axios": "^1.8.3",
     "cheerio": "^1.0.0",
+    "liquidjs": "^10.21.0",
     "puppeteer": "^24.4.0",
     "tldts": "^6.1.85",
     "tsc": "^2.0.4",
