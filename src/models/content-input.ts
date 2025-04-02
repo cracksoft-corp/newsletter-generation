@@ -19,6 +19,10 @@ export interface Episode {
   number: number;
   date: string;
   title: string;
+  links: {
+    apple_podcasts: string;
+    spotify: string;
+  }
 }
 
 export interface BreakingProdLeaderboard {

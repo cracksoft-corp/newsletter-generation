@@ -30,11 +30,17 @@ export async function fetchAdditionalMusicDataAndImages(episodeNumber: number, m
             const spotifyUrl = getSpotifyItemUrl(spotifyArtist);
             const youtubeArtistChannel = await getYouTubeArtistChannel(item.artist);
             const youtubeUrl = getYouTubeChannelUrl(youtubeArtistChannel);
-            const lastFmDescription = await getLastFmArtistInfo(item.artist);
+            let description = "";
+            try {
+                description = await getLastFmArtistInfo(item.artist);
+            } catch (error) {
+                console.error(`Error fetching Last.fm artist info for ${item.artist}:`, error);
+                description = artist.genreNames.join(", ");
+            }
             // upload image to Kit
             output = {
                 artist: item.artist,
-                description: lastFmDescription || artist.genreNames.join(", "),
+                description,
                 uploadedImageUrl,
                 links: [
                     { platform: "Apple Music", url: appleMusicUrl },
@@ -55,12 +61,20 @@ export async function fetchAdditionalMusicDataAndImages(episodeNumber: number, m
             const spotifyUrl = getSpotifyItemUrl(spotifyAlbum);
             const youtubeAlbumPlaylist = await getYouTubeAlbumPlaylist(item.artist, item.album!);
             const youtubeUrl = getYouTubePlaylistUrl(youtubeAlbumPlaylist);
-            const lastFmDescription = await getLastFmAlbumInfo(item.artist, item.album!);
+            let description = appleMusicEditorialNote;
+            if (!description) {
+                try {
+                    description = await getLastFmAlbumInfo(item.artist, item.album!);
+                } catch (error) {
+                    console.error(`Error fetching Last.fm album info for ${item.artist} - ${item.album}:`, error);
+                    description = album.genreNames.join(", ");
+                }
+            }
             // upload image to Kit
             output = {
                 artist: item.artist,
                 album: item.album,
-                description: appleMusicEditorialNote || lastFmDescription,
+                description,
                 uploadedImageUrl,
                 links: [
                     { platform: "Apple Music", url: appleMusicUrl },

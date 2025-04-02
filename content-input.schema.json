@@ -9,9 +9,18 @@
         "properties": {
           "number": { "type": "integer" },
           "date": { "type": "string" },
-          "title": { "type": "string" }
+          "title": { "type": "string" },
+          "links": {
+            "type": "object",
+            "properties": {
+              "apple_podcasts": { "type": "string", "format": "uri" },
+              "spotify": { "type": "string", "format": "uri" }
+            },
+            "required": ["apple_podcasts", "spotify"],
+            "additionalProperties": false
+          }
         },
-        "required": ["number", "date", "title"],
+        "required": ["number", "date", "title", "links"],
         "additionalProperties": false
       },
       "intro": { "type": "string" },

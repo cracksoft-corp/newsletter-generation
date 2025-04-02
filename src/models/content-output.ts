@@ -2,7 +2,7 @@ import { Episode, BreakingProdLeaderboard, BigTopic } from './content-input';
 
 export interface NewsletterEpisodeOutput {
   $schema?: string;
-  episode: Episode & {episodeCoverUrl: string; links: { apple: string; spotify: string;} };
+  episode: Episode & {episodeCoverUrl: string; };
   images: {
     web_play: string;
     apple_podcasts: string;

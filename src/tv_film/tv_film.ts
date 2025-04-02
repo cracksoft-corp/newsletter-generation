@@ -25,7 +25,7 @@ export async function fetchAdditionalTvAndFilmDataAndImages(episodeNumber: numbe
             url: item.url,
             description: openGraphData.description,
             uploadedImageUrl: openGraphData.imageUploadUrl,
-            buttonText: `Watchy hotch on <strong>${mediaDetails.mediaProvider} </strong>`,
+            buttonText: `Watch on <strong>${mediaDetails.mediaProvider}</strong>`,
             buttonBackgroundColour: mediaDetails.buttonBackgroundColour,
             buttonTextColour: mediaDetails.buttonTextColour,
         };

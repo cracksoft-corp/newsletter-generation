@@ -47,7 +47,7 @@ export async function getBooks(episodeNumber: number, books: BookItem[]): Promis
             updatedBooks[idx] = {
                 type: "book",
                 title: `${book.title}, by ${book.authors.join(", ")}`,
-                description: googleBook.volumeInfo.description || "",
+                description: truncate(googleBook.volumeInfo.description),
                 uploadedImageUrl,
                 url: getGoogleBookPreviewLink(googleBook),
                 buttonText: "Google Books",
@@ -93,4 +93,9 @@ export function getGoogleBookThumbnail(book: GoogleBookAttributes): string {
  */
 export function getGoogleBookPreviewLink(book: GoogleBookAttributes): string {
     return book.volumeInfo.previewLink || "";
+}
+
+function truncate(text?: string, maxLength = 300) {
+    if (!text) return "";
+    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
 }

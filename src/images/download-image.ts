@@ -1,26 +1,36 @@
 import axios from 'axios';
-import { createWriteStream } from 'fs';
+import { createWriteStream, unlink } from 'fs';
+import { promisify } from 'util';
+import path from 'path';
+import sharp from 'sharp';
 
-/**
- * Downloads an image from a given URL and saves it to a specified local path.
- * @param url The image URL
- * @param outputPath The local file path where the image should be saved
- */
-export const downloadImage = async (url: string, outputPath: string): Promise<string> => {
+const unlinkAsync = promisify(unlink);
+
+export const downloadImage = async (url: string, outputPath: string) => {
   try {
+    // Download the image to the rawOutputPath.
+    const rawOutputPath = outputPath + "_raw";
     const response = await axios.get(url, { responseType: 'stream' });
-    const fileStream = createWriteStream(outputPath);
+    const fileStream = createWriteStream(rawOutputPath);
     response.data.pipe(fileStream);
-    return new Promise((resolve, reject) => {
-      fileStream.on('finish', () => {
-        resolve(outputPath);
-      });
-      fileStream.on('error', (error) => {
-        reject(error.message);
-      });
+    await new Promise((resolve, reject) => {
+      fileStream.on('finish', resolve as any);
+      fileStream.on('error', reject);
     });
+
+    // Use sharp to resize the image. Here we set a max width of 100.
+    // (Height is adjusted automatically to preserve aspect ratio.)
+    await sharp(rawOutputPath)
+      .resize({ width: 120 })
+      .jpeg({ quality: 95 }) // Use JPEG with quality set to 80
+      .toFile(outputPath);
+
+    // Delete the raw downloaded image file.
+    await unlinkAsync(rawOutputPath);
+
+    return outputPath;
   } catch (error) {
-    console.error(`❌❌ Error downloading image: ${(error as Error).message}`);
-    return Promise.reject((error as Error).message);
+    console.error(`❌❌ Error downloading or resizing image: ${(error as any).message}`);
+    return Promise.reject((error as any).message);
   }
 };

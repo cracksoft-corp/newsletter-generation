@@ -34,11 +34,15 @@ async function ensureDirectories(episodeNumber: number): Promise<void> {
   const manualDir = path.join(imagesDir, "manual_images");
   const newsDir = path.join(imagesDir, "news");
   const tvAndFilmDir = path.join(imagesDir, "tv_and_film");
+  const books = path.join(imagesDir, "books");
+  const web = path.join(imagesDir, "web");
 
   await fs.mkdir(musicDir, { recursive: true });
   await fs.mkdir(manualDir, { recursive: true });
   await fs.mkdir(newsDir, { recursive: true });
   await fs.mkdir(tvAndFilmDir, { recursive: true });
+  await fs.mkdir(books, { recursive: true });
+  await fs.mkdir(web, { recursive: true });
 }
 
 async function fetchExtraDataAndImages() {
@@ -56,17 +60,9 @@ async function fetchExtraDataAndImages() {
   }
 
   output["$schema"] = "../../content-output.schema.json";
-  const episodeCoverUrl = await uploadImage(path.join("episodes", episodeNumber.toString(), "episode_cover.png"));
+  const episodeCoverUrl = await uploadImage(path.join("episodes", episodeNumber.toString(), "episode_cover_small.jpg"));
   output.episode.episodeCoverUrl = episodeCoverUrl;
 
-  // need new newsletter version.
-  // Make all web links look the same format.
-  // Need link to the breaking prod leaderboard.
-  // Add link to the website.
-  // Add link at the bottom to review us on apple podcasts, review us on spotify.
-  // Add link to give us feedback on our form.
-  
-  // Add link for "someone else forwarded you this email? subscribe here."
   // Add link to the newsletter archive.
 
   const tv_and_film_index = content.recommendations.findIndex((item) => item.sectionName === "tv_and_film");
@@ -136,11 +132,9 @@ async function fetchExtraDataAndImages() {
     }
   }
 
-  // Add links to the episode, manual for now.
-  output.episode.links = { apple: "", spotify: "" };
   output.images = {
     "web_play": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/f6u88h81rWLFhFZJHUosWh/email",
-    "apple_podcasts": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/ppdaijx57tkBjaJFBC2R39/email",
+    "apple_podcasts": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/5gNMKHJ1BM8v5VMvVp31Fc/email",
     "apple_music": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/hXevMxeUeuPu7HKu25WzGK/email",
     "spotify": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/i5xxskaPrp8mgjxGE4sXBz/email",
     "youtube_music": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/yKkaciMX9VkhtS37udSLL/email"

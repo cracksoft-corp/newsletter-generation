@@ -25,10 +25,10 @@
           "links": {
               "type": "object",
               "properties": {
-                "apple": { "type": "string", "format": "uri" },
+                "apple_podcasts": { "type": "string", "format": "uri" },
                 "spotify": { "type": "string", "format": "uri" }
               },
-              "required": [ "apple", "spotify" ],
+              "required": [ "apple_podcasts", "spotify" ],
               "additionalProperties": false
             }
         },

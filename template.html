@@ -152,11 +152,11 @@
       }
 
       .ck-padding-left-mobile-friendly {
-        padding-left: 18px !important;
+        padding-left: 4px !important;
       }
 
       .ck-padding-right-mobile-friendly {
-        padding-right: 18px !important;
+        padding-right: 4px !important;
       }
     }
 
@@ -329,6 +329,7 @@
                                                           style="margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:800px;width:100%">
                                                           <div style="display:block"><img
                                                               src="{{ episode.episodeCoverUrl }}" width="800"
+                                                              alt="Episode {{episode.number}} cover image"
                                                               height="auto"
                                                               style="display:block;border-radius:0px;width:800px;height:auto;object-fit:contain">
                                                           </div>
@@ -366,9 +367,10 @@
                                                             <figure
                                                               style="margin:1em 0;margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:106px;width:100%">
                                                               <a style="color:#0875c1;display:block"
-                                                                href="{{ episode.links.apple }}" target="_blank"
+                                                                href="{{ episode.links.apple_podcasts }}" target="_blank"
                                                                 rel="noopener noreferrer" class="kit-image-link"><img
                                                                   src="{{ images.apple_podcasts }}" width="106"
+                                                                  alt="Listen to podcast on Apple Podcasts button"
                                                                   height="auto"
                                                                   style="display:block;height:auto;line-height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;border:0 none;border-radius:4px 4px 4px 4px;width:106px;height:auto;object-fit:contain"></a>
                                                             </figure>
@@ -393,6 +395,7 @@
                                                                 href="{{ episode.links.spotify }}" target="_blank"
                                                                 rel="noopener noreferrer" class="kit-image-link"><img
                                                                   src="{{ images.spotify }}" width="106" height="auto"
+                                                                  alt="Listen to podcast on Spotify button"
                                                                   style="display:block;height:auto;line-height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;border:0 none;border-radius:4px 4px 4px 4px;width:106px;height:auto;object-fit:contain"></a>
                                                             </figure>
                                                           </td>
@@ -410,13 +413,14 @@
                                                         <tr>
                                                           <td align="right" style="vertical-align:top">
                                                             <figure
-                                                              style="margin:1em 0;margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:106px;width:100%">
+                                                              style="margin:1em 0;margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:50px;width:100%">
                                                               <a style="color:#0875c1;display:block"
                                                                 href="https://www.ctrl-alt-expletive.com/{{episode.number}}"
                                                                 target="_blank" rel="noopener noreferrer"
                                                                 class="kit-image-link"><img src="{{ images.web_play }}"
+                                                                  alt="Listen to podcast on our website button"
                                                                   width="50" height="auto"
-                                                                  style="display:block;height:auto;line-height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;border:0 none;border-radius:4px 4px 4px 4px;width:106px;height:auto;object-fit:contain"></a>
+                                                                  style="display:block;height:auto;line-height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;border:0 none;border-radius:4px 4px 4px 4px;width:50px;height:auto;object-fit:contain"></a>
                                                             </figure>
                                                           </td>
                                                         </tr>
@@ -431,8 +435,7 @@
                                           </tr>
                                         </tbody>
                                       </table>
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.4"
-                                        class=""></p>
+                                      
                                       {% raw %}
                                       {%- if subscriber.preferred_podcast_platform != "spotify"
                                       and subscriber.preferred_podcast_platform != "apple"
@@ -458,9 +461,10 @@
                                                             href="https://www.ctrl-alt-expletive.com/{{episode.number}}" target="_blank" rel="noopener noreferrer"
                                                             class="kit-image-link"
                                                             ><img src="{{ images.web_play }}"
+                                                                  alt="Listen to podcast on our website button"
                                                                   width="40" height="auto"
                                                                   style="display:block;border-radius:4px 4px 4px 4px;width:40px;height:auto;object-fit:contain"></a>
-                                                          <figcaption style="text-align:center;display:block">
+                                                          <figcaption style="text-align:center !important;display:block;margin-top:0px !important;margin-bottom:-10px !important;">
                                                             <em>web</em>
                                                           </figcaption>
                                                         </figure>
@@ -482,10 +486,11 @@
                                                       <td align="center">
                                                         <figure
                                                           style="margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:148px;width:100%">
-                                                          <a style="display:block" href="{{ episode.links.apple }}"
+                                                          <a style="display:block" href="{{ episode.links.apple_podcasts }}"
                                                             target="_blank" rel="noopener noreferrer"
                                                             class="kit-image-link"><img
                                                               src="{{ images.apple_podcasts }}" width="148"
+                                                              alt="Listen to podcast on Spotify button"
                                                               height="auto"
                                                               style="display:block;border-radius:4px 4px 4px 4px;width:148px;height:auto;object-fit:contain"></a>
                                                         </figure>
@@ -510,7 +515,9 @@
                                                           <a style="display:block" href="{{ episode.links.spotify }}"
                                                             target="_blank" rel="noopener noreferrer"
                                                             class="kit-image-link"><img
-                                                              src="{{ images.spotify }}" width="330" height="auto"
+                                                              src="{{ images.spotify }}"
+                                                              alt="Listen to podcast on Spotify button"
+                                                              width="134" height="auto"
                                                               style="display:block;border-radius:4px 4px 4px 4px;width:330px;height:auto;object-fit:contain"></a>
                                                         </figure>
                                                       </td>
@@ -571,11 +578,11 @@
                               <tr>
                                 <td contenteditable="false"></td>
                                 <td width="640"
-                                  style="background-color:#ffffff;border-radius:0px;box-sizing:border-box;mso-padding-alt:18px 36px 18px 36px"
+                                  style="background-color:#ffffff;border-radius:0px;box-sizing:border-box;mso-padding-alt:12px 36px 0px 36px"
                                   bgcolor="#ffffff">
                                   <div
                                     class="ck-inner-section ck-padding-left-mobile-friendly ck-padding-right-mobile-friendly"
-                                    style="padding:18px 36px 18px 36px">
+                                    style="padding:12px 36px 12px 36px">
                                     <div style="margin-left:auto;margin-right:auto;max-width:640px">
                                       <hr
                                         style="color:#f5f5f7;width:72%;height:6px;alignment:center;margin-top:0;margin-bottom:0;end-caps:round;border:none;background-color:#f5f5f7;margin-right:auto;margin-left:auto;border-radius:3px">
@@ -612,8 +619,7 @@
                                           <li class="list_item"><span>{{ item }}</span></li>
                                         {%- endfor -%}
                                       </ul>
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5"
-                                        class="">​</p>
+                                      
                                       <h2
                                         style="font-family:Charter, Georgia, Times New Roman, serif;font-size:22px;color:#11363F;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
                                         class="">Quickfire Questions</h2>
@@ -623,9 +629,10 @@
                                           <li class="list_item"><span>{{ item }}</span></li>
                                         {%- endfor -%}
                                       </ul>
+
                                       <table class="ck-layout-block" width="100%" border="0" cellpadding="0"
                                         cellspacing="0" bgcolor="transparent"
-                                        style="padding:0px 0px 0px 0px;margin:30px 0px 7px 0px;border-radius:0px;overflow:hidden">
+                                        style="padding:0px 0px 0px 0px;margin:10px 0px 7px 0px;border-radius:0px;overflow:hidden">
                                         <tbody>
                                           <tr>
                                             <td as="td" class="ck-column ck-column-1" width="75%"
@@ -652,8 +659,7 @@
                                       </table>
                                       <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5"
                                         class="">{{ breakingProdLeaderboard.summary }}</p>
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5"
-                                        class="">​</p>
+                                        
                                       <h2
                                         style="font-family:Charter, Georgia, Times New Roman, serif;font-size:22px;color:#11363F;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
                                         class="">{{ bigTopic.title }}</h2>
@@ -741,6 +747,7 @@
                                                           style="margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:100%;width:100%">
                                                           <div style="display:block"><img
                                                               src="{{ article.uploadedImageUrl }}"
+                                                              alt="{{ article.title }} cover"
                                                               width="100%" height="auto"
                                                               style="display:block;border-radius:4px 4px 4px 4px;width:100%;height:auto;object-fit:contain">
                                                           </div>
@@ -890,6 +897,7 @@
                                                                   style="margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;max-width:100%;width:100%">
                                                                   <div style="display:block"><img
                                                                       src="{{ item.uploadedImageUrl }}"
+                                                                      alt="{{ item.title }}"
                                                                       width="100%" height="auto"
                                                                       style="display:block;border-radius:4px 4px 4px 4px;width:100%;height:auto;object-fit:contain">
                                                                   </div>
@@ -929,7 +937,7 @@
                                                 </tbody>
                                               </table>
 
-                                          {%- else -%}
+                                            {%- else -%}
 
                                               <!-- Music time. -->
                                               <table class="ck-layout-block" width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="transparent"
@@ -950,6 +958,7 @@
                                                                     <!-- todo: improve this, get the image size during data fetching -->
                                                                     <div style="display:block"><img
                                                                         src="{{ item.uploadedImageUrl }}"
+                                                                        alt="{{ item.title }} artwork"
                                                                         width="143" height="auto"
                                                                         style="display:block;border-radius:4px 4px 4px 4px;width:143px;height:auto;object-fit:contain">
                                                                     </div>
@@ -969,8 +978,6 @@
                                                             class="">{{ item.artist }}{% if item.album %} · {{item.album }}{% endif %}</h3>
                                                           <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:12px;color:#353535;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
                                                             class="">{{ item.description }}</p>
-                                                          <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:12px;color:#353535;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
-                                                            class=""></p>
                                                         </div>
                                                       </td>
                                                     </tr>
@@ -978,7 +985,7 @@
                                               </table>
 
                                               {% raw %}
-                                              {%- if subscriber.preferred_podcast_platform == "spotify" or subscriber.preferred_podcast_platform == "apple" or subscriber.preferred_podcast_platform == "web" -%}
+                                              {%- if subscriber.preferred_music_platform == "spotify" or subscriber.preferred_music_platform == "apple" or subscriber.preferred_music_platform == "web" -%}
                                               {% endraw %}
                                               <table width="100%" border="0" cellspacing="0" cellpadding="0"
                                                   style="border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;text-align:right;table-layout:fixed;float:none"
@@ -995,11 +1002,10 @@
 
                                                                   <figure style="margin:1em 0;margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:132px;width:100%">
                                                                   <a style="color:#0875c1;display:block"
-                                                                      href="https://preview.convertkit-mail2.com/click/dpheh0hzhm/aHR0cHM6Ly9tdXNpYy5hcHBsZS5jb20vZ2IvYXJ0aXN0L21lcmN1cnktcmV2LzMyNDA1Mzg="
-                                                                      target="_blank"
-                                                                      rel="noopener noreferrer"
+                                                                      href="{{ item.links[0].url }}" target="_blank" rel="noopener noreferrer"
                                                                       class="kit-image-link"
                                                                   ><img src="{{ images.apple_music }}"
+                                                                        alt="listen on apple music button"
                                                                           width="132"
                                                                           height="auto"
                                                                           style="display:block;height:auto;line-height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;border:0 none;border-radius:4px 4px 4px 4px;width:132px;height:auto;object-fit:contain"
@@ -1017,6 +1023,7 @@
                                                                       class="kit-image-link"
                                                                     ><img
                                                                         src="{{ images.spotify }}"
+                                                                        alt="listen on spotify button"
                                                                         width="117" height="auto"
                                                                         style="display:block;border-radius:4px 4px 4px 4px;width:117px;height:auto;object-fit:contain"
                                                                     ></a>
@@ -1032,6 +1039,7 @@
                                                                     target="_blank" rel="noopener noreferrer"
                                                                     class="kit-image-link" url-id="1732743676"><img
                                                                       src="{{ images.youtube_music }}"
+                                                                      alt="listen on youtube music button"
                                                                       width="117" height="auto"
                                                                       style="display:block;border-radius:4px 4px 4px 4px;width:117px;height:auto;object-fit:contain"></a>
                                                                 </figure>
@@ -1053,7 +1061,7 @@
                                               <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class=""></p>
 
                                               {% raw %}
-                                              {%- if subscriber.preferred_podcast_platform != "spotify" and subscriber.preferred_podcast_platform != "apple" and subscriber.preferred_podcast_platform != "web" -%}
+                                              {%- if subscriber.preferred_music_platform != "spotify" and subscriber.preferred_music_platform != "apple" and subscriber.preferred_music_platform != "web" -%}
                                               {% endraw %}
                                                 <table class="ck-layout-block" width="100%" border="0" cellpadding="0"
                                                   cellspacing="0" bgcolor="transparent"
@@ -1076,6 +1084,7 @@
                                                                       target="_blank" rel="noopener noreferrer"
                                                                       class="kit-image-link"
                                                                     ><img src="{{ images.apple_music }}"
+                                                                        alt="listen on apple music button"
                                                                         width="132" height="auto"
                                                                         style="display:block;border-radius:4px 4px 4px 4px;width:132px;height:auto;object-fit:contain"></a>
                                                                   </figure>
@@ -1102,6 +1111,7 @@
                                                                       target="_blank" rel="noopener noreferrer"
                                                                       class="kit-image-link"
                                                                     ><img src="{{ images.spotify }}"
+                                                                        alt="listen on spotify button"
                                                                         width="117" height="auto"
                                                                         style="display:block;border-radius:4px 4px 4px 4px;width:117px;height:auto;object-fit:contain"></a>
                                                                   </figure>
@@ -1128,6 +1138,7 @@
                                                                       target="_blank" rel="noopener noreferrer"
                                                                       class="kit-image-link"
                                                                     ><img src="{{ images.youtube_music }}"
+                                                                        alt="listen on youtube music button"
                                                                         width="117" height="auto"
                                                                         style="display:block;border-radius:4px 4px 4px 4px;width:117px;height:auto;object-fit:contain"></a>
                                                                   </figure>
@@ -1161,30 +1172,34 @@
                             </table>
                           </center>
                         </div>
-                        <!-- divider -->
-                        <div class="ck-section" style="margin:0px auto 0px auto">
-                          <center>
-                            <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;max-width:100%">
-                              <tbody>
-                                <tr>
-                                  <td contenteditable="false"></td>
-                                  <td width="100%"
-                                    style="background-color:#ffffff;border-radius:0px;box-sizing:border-box;mso-padding-alt:0px 0px 0px 0px"
-                                    bgcolor="#ffffff">
-                                    <div class="ck-inner-section ck-padding-left-none ck-padding-right-none"
-                                      style="padding:0px 0px 0px 0px">
-                                      <div style="margin-left:auto;margin-right:auto;max-width:520px">
-                                        <hr
-                                          style="width:69%;height:4px;alignment:center;margin-top:24px;margin-bottom:24px;border:none;background-color:#666;margin-right:auto;margin-left:auto">
+
+                        {% unless forloop.last %}
+                          <!-- divider -->
+                          <div class="ck-section" style="margin:0px auto 0px auto">
+                            <center>
+                              <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;max-width:100%">
+                                <tbody>
+                                  <tr>
+                                    <td contenteditable="false"></td>
+                                    <td width="100%"
+                                      style="background-color:#ffffff;border-radius:0px;box-sizing:border-box;mso-padding-alt:0px 0px 0px 0px"
+                                      bgcolor="#ffffff">
+                                      <div class="ck-inner-section ck-padding-left-none ck-padding-right-none"
+                                        style="padding:0px 0px 0px 0px">
+                                        <div style="margin-left:auto;margin-right:auto;max-width:520px">
+                                          <hr
+                                            style="width:69%;height:4px;alignment:center;margin-top:24px;margin-bottom:24px;border:none;background-color:#666;margin-right:auto;margin-left:auto">
+                                        </div>
                                       </div>
-                                    </div>
-                                  </td>
-                                  <td contenteditable="false"></td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </center>
-                        </div>  
+                                    </td>
+                                    <td contenteditable="false"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </center>
+                          </div>  
+                        {% endunless %}
+                        
                       {%- endfor -%}
 
                       <!-- divider -->
@@ -1308,18 +1323,25 @@
                                       <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5"
                                         class="">Hope you've enjoyed this newsletter, if you enjoy the show, please
                                         <strong>leave us a rating/review</strong>, or <strong>recommend us a to a
-                                          friend</strong> (verbally, repost socials, or even by forwarding this email!).
+                                          friend</strong> (verbally, repost socials, or even by forwarding this email!)
                                       </p>
+                                      
                                       <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​</p>
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​
+                                      
+                                      <p style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​
                                         <a href="https://www.ctrl-alt-expletive.com/" target="_blank" rel="noopener noreferrer"
                                           class="ck-link" style="color:#0000ff"
-                                        >Visit our site,</a> or get in touch at <a href="mailto:feedback@ctrl-alt-expletive.com"
+                                        >  Visit our site  </a> · <a href="https://newsletter.ctrl-alt-expletive.com/posts" target="_blank" rel="noopener noreferrer"
+                                          class="ck-link" style="color:#0000ff">  Newsletter Archive  </a>
+                                      </p>
+                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​</p>
+                                      <p>Reply to this email or get in touch at <a href="mailto:feedback@ctrl-alt-expletive.com"
                                                                                     target="_blank" class="ck-link" rel="noopener noreferrer"
                                                                                     style="color:#0000ff"
                                                                                 >feedback@ctrl-alt-expletive.com</a>, or fill in our <a
                                           href="https://forms.office.com/Pages/ResponsePage.aspx?id=ma5-BC6JNkSzS9Y4TdgW55DOMpTr2w9It3OxmNqvXQBURU5LNkowS0VKU0s1U003OTBONFUxWjdCSS4u" target="_blank" class="ck-link" rel="noopener noreferrer"
-                                          style="color:#0000ff">listener survey</a>, we really appreciate it.</p>
+                                          style="color:#0000ff">listener survey</a>, we really appreciate it.
+                                      </p>
                                       <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​</p>
                                       <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5;text-align:center" class="">Follow us on socials for exclusive content</p>
                                     </div>
@@ -1348,34 +1370,34 @@
                                       <div style="text-align:center;margin-top:16px;margin-bottom:16px">
                                         <a href="https://www.linkedin.com/company/105807268/admin/dashboard/"
                                           style="display:inline-block;padding-right:8px;border:none;text-decoration:none"
-                                          url-id="1732743690">
+                                          >
                                           <img src="https://functions-js.convertkit.com/icons?icon=linkedin&amp;foreground=ffffff&amp;background=0077b5&amp;shape=circle&amp;v=3"
-                                            alt="linkedin" width="32" height="32"
+                                            alt="LinkedIn logo" width="32" height="32"
                                             style="display:block;width:32px;height:32px;display:inline-block"><!--[if mso]> <![endif]-->​</a>
                                         <a href="https://bsky.app/profile/ctrl-alt-expletive.com"
                                           style="display:inline-block;padding-right:8px;border:none;text-decoration:none"
-                                          url-id="1732743691">
+                                          >
                                           <img
-                                            src="https://functions-js.convertkit.com/icons?icon=external-link&amp;foreground=ffffff&amp;background=000000&amp;shape=circle&amp;v=3"
-                                            alt="external-link" width="32" height="32"
+                                            src="https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/ca5fFPPmVM6gTecGyDCSxi/email"
+                                            alt="BlueSky logo" width="32" height="32"
                                             style="display:block;width:32px;height:32px;display:inline-block"><!--[if mso]> <![endif]-->​</a><a
                                           href="https://www.reddit.com/r/ctrl_alt_expletive/"
                                           style="display:inline-block;padding-right:8px;border:none;text-decoration:none"
-                                          url-id="1732743692"><img
+                                          ><img
                                             src="https://functions-js.convertkit.com/icons?icon=reddit&amp;foreground=ffffff&amp;background=FF4500&amp;shape=circle&amp;v=3"
-                                            alt="reddit" width="32" height="32"
+                                            alt="reddit logo" width="32" height="32"
                                             style="display:block;width:32px;height:32px;display:inline-block"><!--[if mso]> <![endif]-->​</a><a
                                           href="https://www.instagram.com/ctrl_alt_expletive/"
                                           style="display:inline-block;padding-right:8px;border:none;text-decoration:none"
-                                          url-id="1732743693"><img
+                                          ><img
                                             src="https://functions-js.convertkit.com/icons?icon=instagram&amp;foreground=ffffff&amp;background=e1306c&amp;shape=circle&amp;v=3"
-                                            alt="instagram" width="32" height="32"
+                                            alt="instagram logo" width="32" height="32"
                                             style="display:block;width:32px;height:32px;display:inline-block"><!--[if mso]> <![endif]-->​</a><a
                                           href="https://www.youtube.com/@Ctrl-Alt-Expletive"
                                           style="display:inline-block;padding-right:8px;border:none;text-decoration:none"
-                                          url-id="1732743694"><img
+                                          ><img
                                             src="https://functions-js.convertkit.com/icons?icon=youtube&amp;foreground=ffffff&amp;background=cc0000&amp;shape=circle&amp;v=3"
-                                            alt="youtube" width="32" height="32"
+                                            alt="youtube logo" width="32" height="32"
                                             style="display:block;width:32px;height:32px;display:inline-block"><!--[if mso]> <![endif]-->​</a>
                                       </div>
                                     </div>
@@ -1387,45 +1409,6 @@
                           </table>
                         </center>
                       </div>
-                      <div class="ck-section ck-hide-in-public-posts" style="margin:30px auto 0px auto">
-                        <center>
-                          <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;max-width:640px">
-                            <tbody>
-                              <tr>
-                                <td contenteditable="false"></td>
-                                <td width="640"
-                                  style="background-color:#ffffff;border-radius:0px;box-sizing:border-box;mso-padding-alt:0px 0px 0px 0px"
-                                  bgcolor="#ffffff">
-                                  <div class="ck-inner-section ck-padding-left-none ck-padding-right-none"
-                                    style="padding:0px 0px 0px 0px">
-                                    <div style="margin-left:auto;margin-right:auto;max-width:640px">​
-                                      {% raw %}
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#656565;font-weight:400;line-height:1.5;text-align:center;margin-top:0;margin-bottom:100px"
-                                        class="">
-
-                                        <a href="{{ unsubscribe_url }}" target="_blank" class="ck-link"
-                                          rel="noopener noreferrer" style="color:#656565">Unsubscribe</a> · <a
-                                          href="{{ subscriber_preferences_url }}" target="_blank" class="ck-link"
-                                          rel="noopener noreferrer" style="color:#656565">Preferences</a>​
-                                      </p>
-                                      {% endraw %}
-
-                                    </div>
-                                  </div>
-                                </td>
-                                <td contenteditable="false"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </center>
-                      </div>
-                      <!-- anything stopping me from just removing this? -->
-                      <!-- <div role="presentation" style="text-align:center"><a
-                          href="https://click.convertkit-mail2.com/27up0me46naoh8gll52i3hglnk444h038ngr03q7w33pel23xpd70wv2enx67v6w285rwgrvld46l8pe064pp4gzz479o0l79w5r3pvdl3nzg39v5569094dvdo/qvh8h8ud7zwvexsg/aHR0cHM6Ly9raXQuY29tL2ZlYXR1cmVzL2VtYWlsLW1hcmtldGluZz91dG1fY2FtcGFpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09cmVmZXJyYWwmdXRtX3NvdXJjZT1keW5hbWlj"
-                          target="_blank" rel="noopener" style="text-decoration:none" url-id="1732743695"><img
-                            src="https://cdn.convertkit.com/assets/images/kit-badge-light.png" alt="Built with Kit"
-                            style="display:block;display:inline-block;width:157px;height:36px" width="157"
-                            height="36">​</a></div> -->
                     </td>
                   </tr>
                 </tbody>
