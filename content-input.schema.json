@@ -109,16 +109,48 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "type": { "type": "string", "enum": ["web", "book", "podcast", "video", ""] },
-                        "title": { "type": "string" },
-                        "url": { "type": "string", "format": "uri" },
-                        "authors": {
-                          "type": "array",
-                          "items": { "type": "string" }
-                        }
+                        "type": { "type": "string", "enum": ["web", "book"] }
                       },
-                      "required": ["type", "title", "url"],
-                      "additionalProperties": false
+                      "required": ["type"],
+                      "oneOf": [
+                        {
+                          "if": {
+                            "properties": { "type": { "const": "web" } }
+                          },
+                          "then": {
+                            "properties": {
+                              "type": { "type": "string", "enum": ["web"] },
+                              "title": { "type": "string" },
+                              "url": { "type": "string", "format": "uri" }
+                            },
+                            "required": ["title", "url"],
+                            "additionalProperties": false
+                          },
+                          "else": {
+                            "not": {}
+                          }
+                        },
+                        {
+                          "if": {
+                            "properties": { "type": { "const": "book" } }
+                          },
+                          "then": {
+                            "properties": {
+                              "type": { "type": "string", "enum": ["book"] },
+                              "title": { "type": "string" },
+                              "authors": {
+                                "type": "array",
+                                "items": { "type": "string" }
+                              }
+                            },
+                            "required": ["title", "authors"],
+                            "additionalProperties": false
+                          },
+                          "else": {
+                            "not": {}
+                          }
+                        }
+                      ]
                     }
                   }
                 }

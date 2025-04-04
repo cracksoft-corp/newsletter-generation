@@ -152,7 +152,7 @@
                       "properties": {
                         "artist": { "type": "string" },
                         "album": { "type": "string" },
-                        "description": { "type": "string" },
+                        "description": { "type": "string", "minLength": 30 },
                         "uploadedImageUrl": { "type": "string", "format": "uri" },
                         "links": {
                           "type": "array",

@@ -152,11 +152,11 @@
       }
 
       .ck-padding-left-mobile-friendly {
-        padding-left: 4px !important;
+        padding-left: 1px !important;
       }
 
       .ck-padding-right-mobile-friendly {
-        padding-right: 4px !important;
+        padding-right: 1px !important;
       }
     }
 
@@ -176,7 +176,7 @@
       }
 
       .ck-padding-3-right-mobile-friendly {
-        padding-right: 12px !important;
+        padding-right: 2px !important;
       }
 
       .ck-padding-3-bottom-mobile-friendly {
@@ -184,7 +184,7 @@
       }
 
       .ck-padding-3-left-mobile-friendly {
-        padding-left: 12px !important;
+        padding-left: 2px !important;
       }
     }
 
@@ -236,10 +236,6 @@
                   <tr>
                     <td>
 
-                      <!-- web links for non subscribers or email people -->
-                      {% raw %}
-                      {%- if subscriber == false or subscriber == "" -%}
-                      {% endraw %}
                         <div class="ck-section" style="margin:0px auto 0px auto">
                           <center>
                             <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;max-width:100%">
@@ -268,7 +264,7 @@
                                                         ><u>View on the Web</u></a>​</p>
                                                 </div>
                                               </td>
-                                              <td style="padding-left:12px"></td>
+                                              <td style="padding-left:5px"></td>
                                               <td as="td" class="ck-column ck-column-2" width="50%"
                                                 style="background-size:cover;background-position:center;border-radius:0px;box-sizing:border-box;vertical-align:top">
                                                 <div style="padding:0px 0px 0px 0px">
@@ -292,9 +288,6 @@
                             </table>
                           </center>
                         </div>
-                      {% raw %}
-                      {%- endif -%}
-                      {% endraw %}
 
                       <!-- hero and play buttons -->
 
@@ -305,7 +298,7 @@
                               <tr>
                                 <td contenteditable="false"></td>
                                 <td width="100%"
-                                  style="background-color:#ffffff;border-radius:0px;box-sizing:border-box;mso-padding-alt:18px 18px 18px 18px"
+                                  style="background-color:#ffffff;border-radius:0px;box-sizing:border-box;mso-padding-alt:4px 18px 4px 18px"
                                   bgcolor="#ffffff">
                                   <div
                                     class="ck-inner-section ck-padding-left-mobile-friendly ck-padding-right-mobile-friendly"
@@ -350,8 +343,6 @@
                                                   style="width:8%;alignment:center;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto">
                                                 <p style="font-family:Verdana, -apple-system, BlinkMacSystemFont, sans-serif;font-size:20px;color:#353535;font-weight:400;line-height:1.4;margin-top:8px;margin-bottom:8px"
                                                   class="">{{ episode.title }}</p>
-                                                <p style="font-family:Verdana, -apple-system, BlinkMacSystemFont, sans-serif;font-size:20px;color:#353535;font-weight:400;line-height:1.4;margin-top:8px;margin-bottom:8px"
-                                                  class=""></p>
                                                 
                                                 {% raw %}
                                                 {%- case subscriber.preferred_podcast_platform -%}
@@ -558,7 +549,7 @@
                                     class="ck-inner-section ck-padding-left-mobile-friendly ck-padding-right-mobile-friendly"
                                     style="padding:0px 36px 5px 36px">
                                     <div style="margin-left:auto;margin-right:auto;max-width:520px">
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.4"
+                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:14px !important;color:#353535;font-weight:400;line-height:1.4"
                                         class="">{{ intro }}</p>
                                     </div>
                                   </div>
@@ -611,20 +602,20 @@
                                     style="padding:0px 0px 0px 0px">
                                     <div style="margin-left:auto;margin-right:auto;max-width:520px">
                                       <h2
-                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:22px;color:#11363F;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
+                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:18px !important;color:#11363F;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
                                         class="">Show Notes</h2>
                                       <ul class="unordered_list"
-                                        style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5;text-align:left">
+                                        style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:14px !important;color:#353535;font-weight:400;line-height:1.5;text-align:left">
                                         {%- for item in showNotes -%}
                                           <li class="list_item"><span>{{ item }}</span></li>
                                         {%- endfor -%}
                                       </ul>
                                       
                                       <h2
-                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:22px;color:#11363F;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
+                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:18px !important;color:#11363F;font-weight:400;line-height:1.5;margin-top:5px;margin-bottom:0"
                                         class="">Quickfire Questions</h2>
                                       <ul class="unordered_list"
-                                        style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5;text-align:left">
+                                        style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:14px !important;color:#353535;font-weight:400;line-height:1.5;text-align:left">
                                         {%- for item in quickfireQuestions -%}
                                           <li class="list_item"><span>{{ item }}</span></li>
                                         {%- endfor -%}
@@ -632,14 +623,14 @@
 
                                       <table class="ck-layout-block" width="100%" border="0" cellpadding="0"
                                         cellspacing="0" bgcolor="transparent"
-                                        style="padding:0px 0px 0px 0px;margin:10px 0px 7px 0px;border-radius:0px;overflow:hidden">
+                                        style="padding:5px 0px 0px 0px;margin:10px 0px 7px 0px;border-radius:0px;overflow:hidden">
                                         <tbody>
                                           <tr>
                                             <td as="td" class="ck-column ck-column-1" width="75%"
                                               style="background-size:cover;background-position:center;border-radius:0px;box-sizing:border-box;vertical-align:top">
                                               <div style="padding:0px 0px 0px 0px">
                                                 <h2
-                                                  style="font-family:Charter, Georgia, Times New Roman, serif;font-size:22px;color:#11363F;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
+                                                  style="font-family:Charter, Georgia, Times New Roman, serif;font-size:18px !important;color:#11363F;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
                                                   class="">Breaking Prod Leaderboard</h2>
                                               </div>
                                             </td>
@@ -647,7 +638,7 @@
                                             <td as="td" class="ck-column ck-column-2" width="25%"
                                               style="background-size:cover;background-position:center;border-radius:0px;box-sizing:border-box;vertical-align:top">
                                               <div style="padding:0px 0px 0px 0px">
-                                                <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:12px;color:#353535;font-weight:400;line-height:1.5;margin-top:8px;margin-bottom:8px"
+                                                <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:14px;color:#353535;font-weight:400;line-height:1.5;margin-top:8px;margin-bottom:8px"
                                                   class="">​<a
                                                     href="https://www.ctrl-alt-expletive.com/breaking-prod-leaderboard"
                                                     target="_blank" class="ck-link" rel="noopener noreferrer"
@@ -657,14 +648,14 @@
                                           </tr>
                                         </tbody>
                                       </table>
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5"
+                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:14px !important;color:#353535;font-weight:400;line-height:1.5"
                                         class="">{{ breakingProdLeaderboard.summary }}</p>
                                         
                                       <h2
-                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:22px;color:#11363F;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
+                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:18px !important;color:#11363F;font-weight:400;line-height:1.5;margin-top:5px;margin-bottom:0"
                                         class="">{{ bigTopic.title }}</h2>
                                       <ul class="unordered_list"
-                                        style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5;text-align:left">
+                                        style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:14px !important;color:#353535;font-weight:400;line-height:1.5;text-align:left">
                                         {%- for item in bigTopic.questions -%}
                                           <li class="list_item"><span>{{ item }}</span></li>
                                         {%- endfor -%}
@@ -719,7 +710,7 @@
                                     style="padding:0px 0px 0px 0px">
                                     <div style="margin-left:auto;margin-right:auto;max-width:520px">
                                       <h2
-                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:32px;color:#11363F;font-weight:400;line-height:1.5;margin-top:24px;margin-bottom:24px"
+                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:28px;color:#11363F;font-weight:400;line-height:1.5;margin-top:24px;margin-bottom:24px"
                                         class="">In the News</h2>
 
                                       {%- for article in news -%}
@@ -772,7 +763,7 @@
                                           </tr>
                                         </tbody>
                                       </table>
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:16px;color:#353535;font-weight:400;line-height:1.4"
+                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:14px !important;color:#353535;font-weight:400;line-height:1.4;margin:1px 0 !important;"
                                         class="">{{ article.description }}</p>
                                       <!--[if !mso]>-->
                                       <table width="100%">
@@ -781,7 +772,7 @@
                                             <td align="right"><a class="email-button"
                                                 href="{{ article.url }}"
                                                 target="_blank" rel="noopener noreferrer"
-                                                style="background-color:{{ article.buttonBackgroundColour}};color:{{ article.buttonTextColour }};border-radius:0px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;border-color:{{ article.buttonBackgroundColour}};background-color:{{ article.buttonBackgroundColour }};box-sizing:border-box;border-style:solid;color:color:{{ article.buttonTextColour }};display:inline-block;text-align:right;text-decoration:none;padding:12px 20px;margin-top:5px;margin-bottom:0px;font-size:16px;border-radius:4px 4px 4px 4px"
+                                                style="background-color:{{ article.buttonBackgroundColour}};color:{{ article.buttonTextColour }};border-radius:0px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;border-color:{{ article.buttonBackgroundColour}};background-color:{{ article.buttonBackgroundColour }};box-sizing:border-box;border-style:solid;color:color:{{ article.buttonTextColour }};display:inline-block;text-align:right;text-decoration:none;padding:12px 20px;margin-top:0px;margin-bottom:0px;font-size:16px;border-radius:4px 4px 4px 4px"
                                                 >{{article.buttonText}}</a></td>
                                           </tr>
                                         </tbody>
@@ -843,7 +834,7 @@
                                     style="padding:0px 0px 0px 0px">
                                     <div style="margin-left:auto;margin-right:auto;max-width:520px">
                                       <h1
-                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:36px;color:#11363F;font-weight:400;line-height:1.5;margin-top:24px;margin-bottom:24px"
+                                        style="font-family:Charter, Georgia, Times New Roman, serif;font-size:28px;color:#11363F;font-weight:400;line-height:1.5;margin-top:24px;margin-bottom:10px"
                                         class="">Recommendations</h1>
                                     </div>
                                   </div>
@@ -871,7 +862,7 @@
                                       <div style="margin-left:auto;margin-right:auto;max-width:520px">
 
                                         <h3
-                                          style="font-family:Charter, Georgia, Times New Roman, serif;font-size:26px;color:#11363F;font-weight:400;line-height:1;margin-top:24px;margin-bottom:24px"
+                                          style="font-family:Charter, Georgia, Times New Roman, serif;font-size:22px;color:#11363F;font-weight:400;line-height:1;margin-top:24px;margin-bottom:24px"
                                           class="">{{ section.displayName }}</h3>
 
                                         {%- for item in section.items -%}
@@ -913,9 +904,9 @@
                                                       style="background-size:cover;background-position:center;border-radius:0px;box-sizing:border-box;vertical-align:middle">
                                                       <div style="padding:0px 0px 0px 0px">
                                                         <h2
-                                                          style="font-family:Charter, Georgia, Times New Roman, serif;font-size:24px;color:#000000;font-weight:500;line-height:1.5;margin-top:0;margin-bottom:0"
+                                                          style="font-family:Charter, Georgia, Times New Roman, serif;font-size:18px;color:#000000;font-weight:500;line-height:1.5;margin-top:0;margin-bottom:0"
                                                           class="">{{ item.title }}</h2>
-                                                        <p style="font-family:Verdana, -apple-system, BlinkMacSystemFont, sans-serif;font-size:14px;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:8px;margin-bottom:8px"
+                                                        <p style="font-family:Verdana, -apple-system, BlinkMacSystemFont, sans-serif;font-size:14px !important;color:#4d4d4d;font-weight:400;line-height:1.5;margin-top:8px;margin-bottom:8px"
                                                           class="">{{ item.description }}</p>
                                                         <!--[if !mso]>-->
                                                         <table width="100%">
@@ -974,91 +965,91 @@
                                                         style="background-size:cover;background-position:center;border-radius:0px;box-sizing:border-box;vertical-align:top">
                                                         <div style="padding:0px 0px 0px 0px">
                                                           <h3
-                                                            style="font-family:Charter, Georgia, Times New Roman, serif;font-size:26px;color:#11363F;font-weight:400;line-height:1;margin-top:0;margin-bottom:0"
+                                                            style="font-family:Charter, Georgia, Times New Roman, serif;font-size:18px;color:#11363F;font-weight:400;line-height:1;margin-top:0;margin-bottom:0"
                                                             class="">{{ item.artist }}{% if item.album %} · {{item.album }}{% endif %}</h3>
-                                                          <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:12px;color:#353535;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
+                                                          <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:14px !important;color:#353535;font-weight:400;line-height:1.5;margin-top:5px;margin-bottom:0"
                                                             class="">{{ item.description }}</p>
+
+                                              {% raw %}
+                                              {%- if subscriber.preferred_music_platform == "spotify" or subscriber.preferred_music_platform == "apple" or subscriber.preferred_music_platform == "web" -%}
+                                              {% endraw %}
+                                              <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                              style="border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;text-align:right;table-layout:fixed;float:none"
+                                              class="email-image">
+                                              <tbody>
+                                                  <tr>
+                                                      <td align="right"
+                                                          style="vertical-align:top">
+
+                                                          {% raw %}
+                                                          {% case subscriber.preferred_music_platform %}
+                                                              {% when "apple" %}
+                                                              {% endraw %}
+
+                                                              <figure style="margin:1em 0;margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:132px;width:100%">
+                                                              <a style="color:#0875c1;display:block"
+                                                                  href="{{ item.links[0].url }}" target="_blank" rel="noopener noreferrer"
+                                                                  class="kit-image-link"
+                                                              ><img src="{{ images.apple_music }}"
+                                                                    alt="listen on apple music button"
+                                                                      width="132"
+                                                                      height="auto"
+                                                                      style="display:block;height:auto;line-height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;border:0 none;border-radius:4px 4px 4px 4px;width:132px;height:auto;object-fit:contain"
+                                                              ></a>
+                                                              </figure>
+
+
+                                                              {% raw %}
+                                                              {% when "spotify" %}
+                                                              {% endraw %}
+
+                                                              <figure style="margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:117px;width:100%">
+                                                                <a style="display:block"
+                                                                  href="{{ item.links[1].url }}" target="_blank" rel="noopener noreferrer"
+                                                                  class="kit-image-link"
+                                                                ><img
+                                                                    src="{{ images.spotify }}"
+                                                                    alt="listen on spotify button"
+                                                                    width="117" height="auto"
+                                                                    style="display:block;border-radius:4px 4px 4px 4px;width:117px;height:auto;object-fit:contain"
+                                                                ></a>
+                                                              </figure>
+                                                              
+                                                              {% raw %}
+                                                              {% when "youtube" %}
+                                                              {% endraw %}
+
+                                                              <figure style="margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:117px;width:100%">
+                                                              <a style="display:block"
+                                                                href="{{ item.links[2].url }}"
+                                                                target="_blank" rel="noopener noreferrer"
+                                                                class="kit-image-link" url-id="1732743676"><img
+                                                                  src="{{ images.youtube_music }}"
+                                                                  alt="listen on youtube music button"
+                                                                  width="117" height="auto"
+                                                                  style="display:block;border-radius:4px 4px 4px 4px;width:117px;height:auto;object-fit:contain"></a>
+                                                            </figure>
+                                                          
+                                                          {% raw %}
+                                                          {% endcase %}
+                                                          {% endraw %}
+                                                      </td>
+                                                  </tr>
+                                              </tbody>
+                                          </table>
+                                          <p style="margin:1em 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px;line-height:1.5;font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:12px;color:#353535;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
+                                              class=""
+                                          ></p>
+                                          {% raw %}
+                                          {%- endif -%}
+                                          {% endraw %}
+
                                                         </div>
                                                       </td>
                                                     </tr>
                                                   </tbody>
                                               </table>
 
-                                              {% raw %}
-                                              {%- if subscriber.preferred_music_platform == "spotify" or subscriber.preferred_music_platform == "apple" or subscriber.preferred_music_platform == "web" -%}
-                                              {% endraw %}
-                                              <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                                                  style="border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;text-align:right;table-layout:fixed;float:none"
-                                                  class="email-image">
-                                                  <tbody>
-                                                      <tr>
-                                                          <td align="right"
-                                                              style="vertical-align:top">
-
-                                                              {% raw %}
-                                                              {% case subscriber.preferred_music_platform %}
-                                                                  {% when "apple" %}
-                                                                  {% endraw %}
-
-                                                                  <figure style="margin:1em 0;margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:132px;width:100%">
-                                                                  <a style="color:#0875c1;display:block"
-                                                                      href="{{ item.links[0].url }}" target="_blank" rel="noopener noreferrer"
-                                                                      class="kit-image-link"
-                                                                  ><img src="{{ images.apple_music }}"
-                                                                        alt="listen on apple music button"
-                                                                          width="132"
-                                                                          height="auto"
-                                                                          style="display:block;height:auto;line-height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;border:0 none;border-radius:4px 4px 4px 4px;width:132px;height:auto;object-fit:contain"
-                                                                  ></a>
-                                                                  </figure>
-
-
-                                                                  {% raw %}
-                                                                  {% when "spotify" %}
-                                                                  {% endraw %}
-
-                                                                  <figure style="margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:117px;width:100%">
-                                                                    <a style="display:block"
-                                                                      href="{{ item.links[1].url }}" target="_blank" rel="noopener noreferrer"
-                                                                      class="kit-image-link"
-                                                                    ><img
-                                                                        src="{{ images.spotify }}"
-                                                                        alt="listen on spotify button"
-                                                                        width="117" height="auto"
-                                                                        style="display:block;border-radius:4px 4px 4px 4px;width:117px;height:auto;object-fit:contain"
-                                                                    ></a>
-                                                                  </figure>
-                                                                  
-                                                                  {% raw %}
-                                                                  {% when "youtube" %}
-                                                                  {% endraw %}
-
-                                                                  <figure style="margin-top:12px;margin-bottom:12px;margin-left:0;margin-right:0;max-width:117px;width:100%">
-                                                                  <a style="display:block"
-                                                                    href="{{ item.links[2].url }}"
-                                                                    target="_blank" rel="noopener noreferrer"
-                                                                    class="kit-image-link" url-id="1732743676"><img
-                                                                      src="{{ images.youtube_music }}"
-                                                                      alt="listen on youtube music button"
-                                                                      width="117" height="auto"
-                                                                      style="display:block;border-radius:4px 4px 4px 4px;width:117px;height:auto;object-fit:contain"></a>
-                                                                </figure>
-                                                              
-                                                              {% raw %}
-                                                              {% endcase %}
-                                                              {% endraw %}
-                                                          </td>
-                                                      </tr>
-                                                  </tbody>
-                                              </table>
-                                              <p style="margin:1em 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px;line-height:1.5;font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:12px;color:#353535;font-weight:400;line-height:1.5;margin-top:0;margin-bottom:0"
-                                                  class=""
-                                              ></p>
-                                              {% raw %}
-                                              {%- endif -%}
-                                              {% endraw %}
-
-                                              <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class=""></p>
 
                                               {% raw %}
                                               {%- if subscriber.preferred_music_platform != "spotify" and subscriber.preferred_music_platform != "apple" and subscriber.preferred_music_platform != "web" -%}
@@ -1326,7 +1317,7 @@
                                           friend</strong> (verbally, repost socials, or even by forwarding this email!)
                                       </p>
                                       
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​</p>
+                                      
                                       
                                       <p style="text-align:center;font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​
                                         <a href="https://www.ctrl-alt-expletive.com/" target="_blank" rel="noopener noreferrer"
@@ -1334,7 +1325,7 @@
                                         >  Visit our site  </a> · <a href="https://newsletter.ctrl-alt-expletive.com/posts" target="_blank" rel="noopener noreferrer"
                                           class="ck-link" style="color:#0000ff">  Newsletter Archive  </a>
                                       </p>
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​</p>
+                                      
                                       <p>Reply to this email or get in touch at <a href="mailto:feedback@ctrl-alt-expletive.com"
                                                                                     target="_blank" class="ck-link" rel="noopener noreferrer"
                                                                                     style="color:#0000ff"
@@ -1342,7 +1333,7 @@
                                           href="https://forms.office.com/Pages/ResponsePage.aspx?id=ma5-BC6JNkSzS9Y4TdgW55DOMpTr2w9It3OxmNqvXQBURU5LNkowS0VKU0s1U003OTBONFUxWjdCSS4u" target="_blank" class="ck-link" rel="noopener noreferrer"
                                           style="color:#0000ff">listener survey</a>, we really appreciate it.
                                       </p>
-                                      <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5" class="">​</p>
+                                      
                                       <p style="font-family:-apple-system, BlinkMacSystemFont, sans-serif;font-size:18px;color:#353535;font-weight:400;line-height:1.5;text-align:center" class="">Follow us on socials for exclusive content</p>
                                     </div>
                                   </div>
