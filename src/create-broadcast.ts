@@ -21,6 +21,16 @@ if (!KIT_API_KEY) {
   throw new Error("Missing KIT_API_KEY in environment variables.");
 }
 
+async function getEpisodeCoverPath(episodeNumber: number): Promise<string> {
+  const episodeDir = path.join("episodes", episodeNumber.toString());
+  const files = await fs.readdir(episodeDir);
+  // Look for a file that starts with "episode_cover_large" and ends with .jpg, .jpeg, or .png (case-insensitive)
+  const coverFile = files.find(file => /^episode_cover_large\.(jpg|jpeg|png)$/i.test(file));
+  if (!coverFile) throw new Error("No cover file found with the prefix 'episode_cover_large'");
+  return path.join(episodeDir, coverFile);
+}
+
+
 async function createBroadcastEmail() {
     const contentRaw = await fs.readFile(path.join("episodes", episodeNumber.toString(), "content-output.json"), "utf-8");
     const content = JSON.parse(contentRaw) as NewsletterEpisodeOutput;
@@ -30,7 +40,8 @@ async function createBroadcastEmail() {
     const outputPath = path.join("episodes", episodeNumber.toString(), "broadcast-email.html");
     await fs.writeFile(outputPath, renderedHtml, "utf-8");
 
-    const episodeCoverUrl = await uploadImage(path.join("episodes", episodeNumber.toString(), "episode_cover_large.jpg"));
+    const coverImagePath = await getEpisodeCoverPath(episodeNumber);
+    const episodeCoverUrl = await uploadImage(coverImagePath);
     console.log(`Broadcast email HTML generated at: ${outputPath}`);
     const response = await axios.post("https://api.kit.com/v4/broadcasts",
         {

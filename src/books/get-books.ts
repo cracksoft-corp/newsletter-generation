@@ -32,7 +32,8 @@ export async function getBooks(episodeNumber: number, books: BookItem[]): Promis
     for (const idx in books) {
         try {
             const book = books[idx];
-            const googleBook = await getGoogleBook(book.title, book.authors);
+            const cleanedAuthors = (book.authors || []).join(", ");
+            const googleBook = await getGoogleBook(book.title, cleanedAuthors);
             const thumbnail = getGoogleBookThumbnail(googleBook);
             let uploadedImageUrl = "";
             if (!thumbnail) {
@@ -46,7 +47,7 @@ export async function getBooks(episodeNumber: number, books: BookItem[]): Promis
             }
             updatedBooks[idx] = {
                 type: "book",
-                title: `${book.title}, by ${book.authors.join(", ")}`,
+                title: `${book.title}${cleanedAuthors ? ", by " + cleanedAuthors : ""}`,
                 description: truncate(googleBook.volumeInfo.description),
                 uploadedImageUrl,
                 url: getGoogleBookPreviewLink(googleBook),
@@ -65,8 +66,8 @@ export async function getBooks(episodeNumber: number, books: BookItem[]): Promis
  * Fetches a Google Book based on a search query.
  * Returns the first book found.
  */
-export async function getGoogleBook(title: string, authors: string[]): Promise<GoogleBookAttributes> {
-    const query = `${title} ${authors.join(" ")}`;
+export async function getGoogleBook(title: string, authors: string): Promise<GoogleBookAttributes> {
+    const query = `${title} ${authors}`;
     const endpoint = `https://www.googleapis.com/books/v1/volumes`
         + `?q=${encodeURIComponent(query)}`
         + `&key=${booksApiKey}`

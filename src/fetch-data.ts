@@ -134,7 +134,7 @@ async function fetchExtraDataAndImages() {
 
   output.images = {
     "web_play": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/f6u88h81rWLFhFZJHUosWh/email",
-    "apple_podcasts": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/5gNMKHJ1BM8v5VMvVp31Fc/email",
+    "apple_podcasts": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/ppdaijx57tkBjaJFBC2R39/email",
     "apple_music": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/hXevMxeUeuPu7HKu25WzGK/email",
     "spotify": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/i5xxskaPrp8mgjxGE4sXBz/email",
     "youtube_music": "https://embed.filekitcdn.com/e/tzG41MtqqwK7WM4ibRaugU/yKkaciMX9VkhtS37udSLL/email"

@@ -21,8 +21,8 @@ export const downloadImage = async (url: string, outputPath: string) => {
     // Use sharp to resize the image. Here we set a max width of 100.
     // (Height is adjusted automatically to preserve aspect ratio.)
     await sharp(rawOutputPath)
-      .resize({ width: 120 })
-      .jpeg({ quality: 95 }) // Use JPEG with quality set to 80
+      .resize({ width: 180 })
+      .jpeg({ quality: 100 }) // Use JPEG with quality set to 80
       .toFile(outputPath);
 
     // Delete the raw downloaded image file.
